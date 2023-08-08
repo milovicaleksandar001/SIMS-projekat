@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccImgesTitle" xml:space="preserve">
+    <value>Accommodation images</value>
+  </data>
+  <data name="AccNameDataGrid" xml:space="preserve">
+    <value>Accommodation name</value>
+  </data>
+  <data name="AccommodationImage" xml:space="preserve">
+    <value>Accommodation image:</value>
+  </data>
+  <data name="AccommodationLabel" xml:space="preserve">
+    <value>Accommodation:</value>
+  </data>
+  <data name="AccommodationName" xml:space="preserve">
+    <value>Accommodation name:</value>
+  </data>
+  <data name="AddComment" xml:space="preserve">
+    <value>Add first comment:</value>
+  </data>
+  <data name="AddCommnet" xml:space="preserve">
+    <value>Add comment:</value>
+  </data>
+  <data name="AddForumComment" xml:space="preserve">
+    <value>Add comment on forum:</value>
+  </data>
+  <data name="AddPicture" xml:space="preserve">
+    <value>Add picture:</value>
+  </data>
+  <data name="ApartmentType" xml:space="preserve">
+    <value>APATRMENT</value>
+  </data>
+  <data name="ArrivalDayDataGrid" xml:space="preserve">
+    <value>Arrival day</value>
+  </data>
+  <data name="ArrivalDayDetails" xml:space="preserve">
+    <value>Arrival day:</value>
+  </data>
+  <data name="BonusPoints" xml:space="preserve">
+    <value>Bonus points:</value>
+  </data>
+  <data name="BookAccTitle" xml:space="preserve">
+    <value>Book your accommodation!</value>
+  </data>
+  <data name="BookButton" xml:space="preserve">
+    <value>BOOK</value>
+  </data>
+  <data name="CancelationPeriodDataGrid" xml:space="preserve">
+    <value>Cancelation period</value>
+  </data>
+  <data name="CancleButton" xml:space="preserve">
+    <value>CANCLE</value>
+  </data>
+  <data name="CapacityDataGrid" xml:space="preserve">
+    <value>Capacity</value>
+  </data>
+  <data name="ChangeTheme" xml:space="preserve">
+    <value>Change theme</value>
+  </data>
+  <data name="ChcekInCheckOut" xml:space="preserve">
+    <value>Check in - check out:</value>
+  </data>
+  <data name="ChooseArrivalDay" xml:space="preserve">
+    <value>Choose arrival day:</value>
+  </data>
+  <data name="ChooseDepartureDay" xml:space="preserve">
+    <value>Choose departure day:</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City:</value>
+  </data>
+  <data name="CityDataGrid" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="CleanlinessDataGrid" xml:space="preserve">
+    <value>Cleanliness</value>
+  </data>
+  <data name="CloseForumButton" xml:space="preserve">
+    <value>CLOSE FORUM</value>
+  </data>
+  <data name="CommunicationDataGrid" xml:space="preserve">
+    <value>Communication</value>
+  </data>
+  <data name="CottageType" xml:space="preserve">
+    <value>COTTAGE</value>
+  </data>
+  <data name="CreateForumTitle" xml:space="preserve">
+    <value>Create forum</value>
+  </data>
+  <data name="darkTheme" xml:space="preserve">
+    <value>DARK</value>
+  </data>
+  <data name="DepartureDayDataGrid" xml:space="preserve">
+    <value>Departure day</value>
+  </data>
+  <data name="DeparuteDayDetails" xml:space="preserve">
+    <value>Departure day:</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End date:</value>
+  </data>
+  <data name="EndDateDataGrid" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="ForumCommentsTitle" xml:space="preserve">
+    <value>Forum comments</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Forums</value>
+  </data>
+  <data name="GeneratePDFButton" xml:space="preserve">
+    <value>Generate PDF</value>
+  </data>
+  <data name="GeneratePdfQuestion" xml:space="preserve">
+    <value>Do you want to generate pdf reservation report?</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>HomePage</value>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>What's your next destination?</value>
+  </data>
+  <data name="HouseType" xml:space="preserve">
+    <value>HOUSE</value>
+  </data>
+  <data name="ImageDataGrid" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LatenessDataGrid" xml:space="preserve">
+    <value>Lateness</value>
+  </data>
+  <data name="LeaveCommentButton" xml:space="preserve">
+    <value>Leave comment</value>
+  </data>
+  <data name="Level1NiceToHave" xml:space="preserve">
+    <value>Level 1 - Nice to have</value>
+  </data>
+  <data name="Level2MinorComplaints" xml:space="preserve">
+    <value>Level2 - Minor complaints</value>
+  </data>
+  <data name="Level3ReallyBothersome" xml:space="preserve">
+    <value>Level3 - Really bothersome</value>
+  </data>
+  <data name="Level4ReallyNecessary" xml:space="preserve">
+    <value>Level4 - Really necessary</value>
+  </data>
+  <data name="Level5VeryBadCondition" xml:space="preserve">
+    <value>Level5 - Very bad condition</value>
+  </data>
+  <data name="lightTheme" xml:space="preserve">
+    <value>LIGHT</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>My profile</value>
+  </data>
+  <data name="MyProfileTitle" xml:space="preserve">
+    <value>My profile</value>
+  </data>
+  <data name="MyReschaduleRequestsTitle" xml:space="preserve">
+    <value>My reschadule requests</value>
+  </data>
+  <data name="MyReservations" xml:space="preserve">
+    <value>Reservations</value>
+  </data>
+  <data name="MyReservationsTitle" xml:space="preserve">
+    <value> My reservations</value>
+  </data>
+  <data name="MyReviewsTitle" xml:space="preserve">
+    <value>My reviews</value>
+  </data>
+  <data name="NameDataGrid" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="NextButton" xml:space="preserve">
+    <value>NEXT</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NumberOfResevations" xml:space="preserve">
+    <value>Number of reservations:</value>
+  </data>
+  <data name="NumberOgGuests" xml:space="preserve">
+    <value>Number of guests:</value>
+  </data>
+  <data name="OpenForumButton" xml:space="preserve">
+    <value>OPEN FORUM</value>
+  </data>
+  <data name="OwnerLabel" xml:space="preserve">
+    <value>Owner:</value>
+  </data>
+  <data name="OwnersComment" xml:space="preserve">
+    <value>Owner's comment:</value>
+  </data>
+  <data name="OwnerUsername" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="OwnerUsernameDataGrid" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="PreviousButton" xml:space="preserve">
+    <value>PREVOIUS</value>
+  </data>
+  <data name="QuickSearch" xml:space="preserve">
+    <value>Quick search</value>
+  </data>
+  <data name="QuickSearchTitle" xml:space="preserve">
+    <value>Anywhere-Anytime</value>
+  </data>
+  <data name="RateAccommodationAccAndOwnerTitle" xml:space="preserve">
+    <value>Rate Accommodation and Owner!</value>
+  </data>
+  <data name="RateButton" xml:space="preserve">
+    <value>RATE</value>
+  </data>
+  <data name="RateCleanliness" xml:space="preserve">
+    <value>Rate cleanliness:</value>
+  </data>
+  <data name="RateOwnerCourtesy" xml:space="preserve">
+    <value>Rate courtesy of the owner:</value>
+  </data>
+  <data name="RecommodationTitle" xml:space="preserve">
+    <value>Recommendation for renovation</value>
+  </data>
+  <data name="RenovationApproval" xml:space="preserve">
+    <value>Do you want to add recommodaion for renorvation?</value>
+  </data>
+  <data name="RenovationUrgency" xml:space="preserve">
+    <value>Urgency for renovation:</value>
+  </data>
+  <data name="RenvationArea" xml:space="preserve">
+    <value>Area that needs renovation:</value>
+  </data>
+  <data name="RequestDetailsTitle" xml:space="preserve">
+    <value>Request details</value>
+  </data>
+  <data name="ReschaduleButton" xml:space="preserve">
+    <value>RESCHADULE</value>
+  </data>
+  <data name="ReschduleResrvationTitle" xml:space="preserve">
+    <value>Reschadule reservation request</value>
+  </data>
+  <data name="RescheduleRequests" xml:space="preserve">
+    <value>Requests</value>
+  </data>
+  <data name="ReservationDays" xml:space="preserve">
+    <value>Reserved dates:</value>
+  </data>
+  <data name="ReservationDetailsTitle" xml:space="preserve">
+    <value>Reservation details</value>
+  </data>
+  <data name="ReservationRequestDates" xml:space="preserve">
+    <value>Request dates:</value>
+  </data>
+  <data name="ReservationRestricitonsDataGrid" xml:space="preserve">
+    <value>Advance reservation restrictions</value>
+  </data>
+  <data name="ReserveButton" xml:space="preserve">
+    <value>RESERVE</value>
+  </data>
+  <data name="ResrevedBy" xml:space="preserve">
+    <value>Resrved by:</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Reviews</value>
+  </data>
+  <data name="RuleFollowingDataGrid" xml:space="preserve">
+    <value>Rule following</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>SEARCH</value>
+  </data>
+  <data name="SendRequestButton" xml:space="preserve">
+    <value>SEND REQUEST</value>
+  </data>
+  <data name="ShowAllButton" xml:space="preserve">
+    <value>SHOW ALL</value>
+  </data>
+  <data name="ShowAllForumsTitle" xml:space="preserve">
+    <value>Forums</value>
+  </data>
+  <data name="ShowForumComments" xml:space="preserve">
+    <value>SEE COMMENTS</value>
+  </data>
+  <data name="ShowImagesButton" xml:space="preserve">
+    <value>SHOW IMAGES</value>
+  </data>
+  <data name="ShowMoreDetailsButton" xml:space="preserve">
+    <value>MORE DETAILS</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start date:</value>
+  </data>
+  <data name="StartDateDataGrid" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>State:</value>
+  </data>
+  <data name="StateDataGrid" xml:space="preserve">
+    <value>State</value>
+  </data>
+  <data name="StatusRequest" xml:space="preserve">
+    <value>Request's status:</value>
+  </data>
+  <data name="StayingDays" xml:space="preserve">
+    <value>Staying days:</value>
+  </data>
+  <data name="SubmitButton" xml:space="preserve">
+    <value>SUBMITT</value>
+  </data>
+  <data name="SuggestedDatesTitle" xml:space="preserve">
+    <value>Free dates suggestions</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type:</value>
+  </data>
+  <data name="TypeDataGrid" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Username:</value>
+  </data>
+  <data name="VeryHelpful" xml:space="preserve">
+    <value>Very helpful</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="YourTitle" xml:space="preserve">
+    <value>Your title:</value>
+  </data>
+</root>

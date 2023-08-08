@@ -1,0 +1,127 @@
+﻿<Window x:Class="Booking.View.OwnerHomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.View"
+        mc:Ignorable="d"
+        Title="OwnerHomePage" Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <!-- Placeholder for the TextBox itself -->
+                <AdornedElementPlaceholder x:Name="NameTextBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+
+
+
+        <StackPanel DockPanel.Dock="Top" Margin="0,0,639,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFD2F119" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button Content=" Register accommodation" FontSize="18" Width="250" Height="65" HorizontalAlignment="Left" ToolTip="Press to add new accommodation" Margin="1 20 10 0" Command="{Binding OpenRegisterAccommodation}" HorizontalContentAlignment="Left" />
+            <Button Content=" Accomodation stats" FontSize="18" Width="250" Height="65" HorizontalAlignment="Left" Margin="1 5 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenAccommodationStatistics}" />
+            <Button Content=" Site proposal" FontSize="18" Width="250" Height="65" HorizontalAlignment="Left" Margin="1 5 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenSiteProposals}"/>
+            <Button Content=" Handling date changes" FontSize="18" ToolTip="Press to see requests for date changes" Width="250" Height="65" HorizontalAlignment="Left" Margin="1 5 10 0" Command="{Binding OpenDateMove}" HorizontalContentAlignment="Left" />
+            <Button Content=" Gradeing guests" FontSize="18" Width="250" ToolTip="Press to see reservations that you can grade" Height="65" HorizontalAlignment="Left" Margin="1 5 10 0" Command="{Binding OpenGradingGuests}" HorizontalContentAlignment="Left" />
+            <Button Content=" View reviews" FontSize="18" Width="250" ToolTip="Press to see grades that you got from guests" Height="65" HorizontalAlignment="Left" Margin="1 5 10 0" Command="{Binding OpenViewReviews}" HorizontalContentAlignment="Left" />
+            <Button Content=" Super-owner" FontSize="18" Width="250" ToolTip="Press to see if you are a super-owner" Height="65" HorizontalAlignment="Left" Margin="1 5 10 0" Command="{Binding OpenSuperOwner}" HorizontalContentAlignment="Left" />
+            <Button Content=" Scheduling renovations" FontSize="18" Width="250" Height="65" HorizontalAlignment="Left" Margin="1 5 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenSchedulingRenovations}" />
+            <Button Content=" Show renovations" FontSize="18" Width="250" Height="65" HorizontalAlignment="Left" Margin="1 5 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenShowRenovations}"/>
+            <Button Content=" Forum" FontSize="18" Width="250" Height="65" HorizontalAlignment="Left" Margin="1 5 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenForums}"/>
+
+            <!--    <Menu BorderBrush="Black" BorderThickness="3" Width="200"> 
+                <MenuItem Header="proba"></MenuItem>
+                </Menu>     endregion-->
+
+
+
+        </StackPanel>
+
+        <StackPanel Margin="260,0,5,0" Background="#D6E6F2">
+
+            <TextBlock Margin="8 0 0 0" FontWeight="Bold" FontSize="32" Text="Home page" Foreground="#FFFFF200" >
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <Separator Margin="8 0 0 0" Width="717" HorizontalAlignment="Left" />
+            <ScrollViewer MaxHeight="700">
+                <DataGrid        
+                BorderBrush="Black"
+            SelectionMode="Single"
+            IsReadOnly="True" 
+            Margin="8 20 10 10" 
+            RowHeight="35"
+            AlternationCount="2"
+            AutoGenerateColumns="False"             
+            CanUserResizeColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserReorderColumns="False"
+            SelectedItem="{Binding SelectedAccommodation, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Path=Accommodations, UpdateSourceTrigger=PropertyChanged}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="100" Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Width="*" Header="State" Binding="{Binding Location.State}"></DataGridTextColumn>
+                        <DataGridTextColumn Width="*" Header="City" Binding="{Binding Location.City}"></DataGridTextColumn>
+                        <DataGridTextColumn Width="75" Header="Type" Binding="{Binding Type}"/>
+                        <DataGridTextColumn Header="Capacity" Width="55" Binding="{Binding Capacity}"/>
+                        <DataGridTextColumn Width="90" Header="Minimum days" Binding="{Binding MinNumberOfDays}"/>
+                        <DataGridTextColumn Width="110" Header="Cancelation Period" Binding="{Binding CancelationPeriod}"/>
+                        <DataGridTemplateColumn Header="Pictures">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Command="{Binding DataContext.ShowPictures, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" Content="See" ToolTip="Press to open pictures for this accommodation" FontSize="11" Width="65" Height="30" FontStyle="Oblique">
+                                        <Button.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="5"></Setter>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="#D6E6F2"/>
+                            <Style.Triggers>
+                                <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                                    <Setter Property="Background" Value="#F5F5F5"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.RowStyle>
+
+                </DataGrid>
+            </ScrollViewer>
+        </StackPanel>
+        <WrapPanel FlowDirection="LeftToRight" Margin="785,10,0,671">
+            <Button Margin ="118 0 0 0" HorizontalAlignment="Left" ToolTip="Press to open wizard" Width="80" Height="30" FontWeight="Bold" FontSize="15" Command="{Binding Wizard}" >Wizard</Button>
+            <Button Margin ="18 -30 0 0 " HorizontalAlignment="Left" ToolTip="Press to change user" Width="80" Height="30" FontWeight="Bold" FontSize="15" Command="{Binding OwnerLogOut}" >LOG OUT</Button>
+        </WrapPanel>
+        <WrapPanel FlowDirection="LeftToRight" Margin="535,7,0,671">
+            <Label Content="Year:" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" FontSize="20" />
+            <TextBox HorizontalAlignment="Left" Margin="0,5,0,0" ToolTip="Press to enter year for PDF" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="100" FontSize="20" Text="{Binding Path=PDFYear, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+                <TextBox.Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Style.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <Button Margin ="20 0 0 0" HorizontalAlignment="Left" ToolTip="Press to create pdf" Width="80" Height="30" FontWeight="Bold" FontSize="15" Command="{Binding PDF}" >PDF</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

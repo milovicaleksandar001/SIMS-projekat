@@ -1,0 +1,47 @@
+﻿<Window x:Class="Booking.WPF.Views.Owner.OwnerAllForums"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.WPF.Views.Owner"
+        mc:Ignorable="d"
+        Title="OwnerAllForums" Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock Margin="10,6,0,0" FontWeight="Bold" FontSize="42" Text="Forums" Foreground="#FFFFF200" >
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <Separator Margin="0,-120,0,480" Width="1024" HorizontalAlignment="Center" />
+
+        <DataGrid 
+            x:Name="dataGrid" 
+            IsReadOnly="True" 
+            Margin="12 50 12 92" 
+            RowHeight="40"
+            FontSize="20"
+            Height="550"
+            AutoGenerateColumns="False"
+            SelectedItem="{Binding SelectedForum}"
+            SelectionMode="Single"
+            CanUserResizeColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False"
+            ItemsSource="{Binding Path=Forums, UpdateSourceTrigger=PropertyChanged}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="State" Binding="{Binding Location.State}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="City" Binding="{Binding Location.City}"/>
+                <DataGridTextColumn Header="Creator" Width="*" Binding="{Binding User.Username}"/>
+                <DataGridTextColumn Width="*" Header="Status" Binding="{Binding Status}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Very helpful" Binding="{Binding Helpful}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel FlowDirection="LeftToRight" Margin="200,620,0,0">
+            <Button Margin ="118 10 0 0 " HorizontalAlignment="Left"  Width="150" Height="75" ToolTip="Press to see comments for this forum" FontWeight="Bold" FontSize="35" Command="{Binding ShowComments}" >SEE</Button>
+            <Button Margin="60 10 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" ToolTip="Press to close this window" Height="75" FontWeight="Bold" FontSize="35" Command="{Binding Close}" >CLOSE</Button>
+        </WrapPanel>
+        <WrapPanel FlowDirection="LeftToRight" Margin="785,10,0,671">
+            <Button Margin ="118 5 0 0 " HorizontalAlignment="Left" ToolTip="Press to open wizard" Width="80" Height="30" FontWeight="Bold" FontSize="15" Command="{Binding Wizard}" >Wizard</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

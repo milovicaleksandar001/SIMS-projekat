@@ -1,0 +1,177 @@
+﻿<Window x:Class="Booking.View.FirstGuestHomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:notifications="clr-namespace:Notifications.Wpf.Controls;assembly=Notifications.Wpf"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.View"
+        xmlns:ns="clr-namespace:Booking.Localization"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        
+        mc:Ignorable="d"
+        Title="GuestBOOKING" Height="635" Width="1100" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" >
+
+    <Window.Resources>
+        <Style x:Key="Label" TargetType="Label">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Yu Gothic"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="OnChecking">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="25"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="OnUnchecking">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                    <SplineThicknessKeyFrame KeyTime="00:00:00.3000000" Value="1,1,1,1"/>
+                                </ThicknessAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+
+                        <DockPanel x:Name="dockPanel">
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" ContentTemplate="{TemplateBinding ContentTemplate}" RecognizesAccessKey="True" VerticalAlignment="Center"/>
+                            <Grid Margin="5,5,0,5" Width="53" Background="Black" >
+                                <TextBlock Text="" TextWrapping="Wrap" FontWeight="Bold" FontSize="12" HorizontalAlignment="Right" Margin="0,0,3,0"/>
+                                <TextBlock HorizontalAlignment="Left" Margin="2,0,0,0" FontSize="12" FontWeight="Bold" Text="" TextWrapping="Wrap"/>
+                                <Border HorizontalAlignment="Left" x:Name="slider" Width="23" BorderThickness="1,1,1,1" CornerRadius="3,3,3,3" RenderTransformOrigin="0.5,0.5" Margin="1,1,1,1">
+                                    <Border.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                            <SkewTransform AngleX="0" AngleY="0"/>
+                                            <RotateTransform Angle="0"/>
+                                            <TranslateTransform X="0" Y="0"/>
+                                        </TransformGroup>
+                                    </Border.RenderTransform>
+                                    <Border.BorderBrush>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                            <GradientStop Color="Gray" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.BorderBrush>
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="AliceBlue" Offset="1"/>
+                                            <GradientStop Color="Gray" Offset="0"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                            </Grid>
+                        </DockPanel>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard Storyboard="{StaticResource OnUnchecking}" x:Name="OnUnchecking_BeginStoryboard"/>
+                                </Trigger.ExitActions>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource OnChecking}" x:Name="OnChecking_BeginStoryboard"/>
+                                </Trigger.EnterActions>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Menu Height="Auto" Width="1100"  Background="LightGray">
+                <MenuItem Header="{ns:Loc HomePage}" FontWeight="Bold" HorizontalAlignment="Right" Click="MenuItem_Click_HomePage" />
+                <MenuItem Header="{ns:Loc QuickSearch}" FontWeight="Bold" HorizontalAlignment="Right" Click="MenuItem_Click_QuickSerach"/>
+                <MenuItem Header="{ns:Loc MyReservations}" FontWeight="Bold" HorizontalAlignment="Right" Click="MenuItem_Click_MyReservations"/>
+                <MenuItem Header="{ns:Loc RescheduleRequests}"  FontWeight="Bold" HorizontalAlignment="Right" Click="MenuItem_Click_ResheduleRequests"/>
+                <MenuItem Header="{ns:Loc Reviews}" FontWeight="Bold" HorizontalAlignment="Right" Click="MenuItem_Click_Reviews"/>
+                <MenuItem Header="{ns:Loc Forums}" FontWeight="Bold" HorizontalAlignment="Right" Click="MenuItem_Click_Forums"/>
+                <Separator Width="120" Background="LightGray"/>
+
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" Width="180" Height="34">
+                    <Label  Content="{ns:Loc darkTheme}" Foreground="Black" Style="{DynamicResource Label}" HorizontalContentAlignment="Right" Width="60" Margin="0,0,0,4"/>
+                    <CheckBox  x:Name="themeCheckBox" Style="{DynamicResource CheckBoxStyle1}" IsChecked="{Binding ButtonIsChecked}" Width="60" Height="33"  />
+                    <Label Content="{ns:Loc lightTheme}" Foreground="Black" Style="{DynamicResource Label}" Width="60" Margin="0,0,0,4"/>
+                </StackPanel>
+
+                <MenuItem Header="SRB" FontWeight="Bold" HorizontalAlignment="Right" Click="MenuItem_Click_SRB" BorderBrush="Gray" BorderThickness="1" Margin="2" >
+                    <MenuItem.Icon>
+                        <Image  Source="/Resources/Images/flag.png" Margin="-6,-2,-16,0" Width="30"/>
+                    </MenuItem.Icon>
+                    <MenuItem.Style>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="FontSize" Value="14" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsSRBSelected}" Value="True">
+                                    <Setter Property="FontSize" Value="23" />
+                                </DataTrigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="FontSize" Value="18" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </MenuItem.Style>
+                </MenuItem>
+                <MenuItem Header="ENG" FontWeight="Bold" HorizontalAlignment="Right" Click="MenuItem_Click_ENG" BorderBrush="Gray" BorderThickness="1" Margin="2">
+                    <MenuItem.Icon>
+                        <Image  Source="/Resources/Images/flag1.png" Margin="-7,0,-14,0"  VerticalAlignment="Bottom" Height="20"/>
+                    </MenuItem.Icon>
+                    <MenuItem.Style>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="FontSize" Value="14" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsENGSelected}" Value="True">
+                                    <Setter Property="FontSize" Value="23" />
+                                    <Setter Property="Background" Value="BlueViolet" />
+                                </DataTrigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="FontSize" Value="18" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </MenuItem.Style>
+                </MenuItem>
+                <MenuItem Header="{ns:Loc LogOut}" FontWeight="Bold" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1" Margin="3" Click="MenuItem_Click_LogOut">
+                    <MenuItem.Icon>
+                        <Image  Source="/Resources/Images/logOut.png" Width="30" Height="17"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{ns:Loc MyProfile}" FontWeight="Bold" HorizontalAlignment="Left" BorderBrush="Gray" BorderThickness="1,1,1,1" Margin="3" Click="MenuItem_Click_MyProfile">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Images/user.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Height="Auto" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  Margin="0,0,0,-573">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="611*"/>
+                    <ColumnDefinition Width="489*"/>
+                </Grid.ColumnDefinitions>
+                <Frame x:Name="FrameHomePage" Height="Auto" Grid.ColumnSpan="2"/>
+                <notifications:NotificationArea x:Name="WindowArea" Panel.ZIndex="1000" HorizontalAlignment="Right"
+                                                Position="TopRight" Width="Auto" Height="525" Margin="20" VerticalAlignment="Center" Grid.Column="1"></notifications:NotificationArea>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Window>

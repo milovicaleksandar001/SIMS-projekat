@@ -1,0 +1,60 @@
+@startuml
+skinparam sequenceParticipantBackgroundColor #FFFFFF
+skinparam sequenceParticipantBorderColor #000000
+
+actor User
+participant GuideCreateTourBasedOnTourRequestViewModel
+participant TourNotificationService
+database TourNotificationRepository
+participant TourNotification
+participant TourNotificationViewModel
+
+User -> GuideCreateTourBasedOnTourRequestViewModel: GuideCreateTourBasedOnTourRequestViewModel()
+activate GuideCreateTourBasedOnTourRequestViewModel
+GuideCreateTourBasedOnTourRequestViewModel -> GuideCreateTourBasedOnTourRequestViewModel: CreateNotification()
+activate GuideCreateTourBasedOnTourRequestViewModel
+GuideCreateTourBasedOnTourRequestViewModel -> TourRequestService: CheckUnfulfilledRequest(tour.Language, tour.Location)
+activate TourRequestService
+TourRequestService --> GuideCreateTourBasedOnTourRequestViewModel: List<User>
+deactivate TourRequestService
+loop foreach u in users
+GuideCreateTourBasedOnTourRequestViewModel -> TourNotification: <<create>>
+activate TourNotification
+TourNotification -> GuideCreateTourBasedOnTourRequestViewModel: TourNotification
+deactivate TourNotification
+GuideCreateTourBasedOnTourRequestViewModel -> TourNotificationService: Add(tourNotification)
+activate TourNotificationService
+TourNotificationService -> TourNotificationRepository: NextId()
+activate TourNotificationRepository
+TourNotificationRepository --> TourNotificationService: Id
+deactivate TourNotificationRepository
+TourNotificationService -> TourNotificationRepository: Add(tourNotification)
+activate TourNotificationRepository
+TourNotificationRepository --> TourNotificationService: TourNotification
+deactivate TourNotificationRepository
+TourNotificationService --> GuideCreateTourBasedOnTourRequestViewModel
+deactivate TourNotificationService
+end
+GuideCreateTourBasedOnTourRequestViewModel --> GuideCreateTourBasedOnTourRequestViewModel
+deactivate GuideCreateTourBasedOnTourRequestViewModel
+GuideCreateTourBasedOnTourRequestViewModel --> User
+deactivate GuideCreateTourBasedOnTourRequestViewModel
+
+User -> TourNotificationViewModel: TourNotificationViewModel()
+activate TourNotificationViewModel
+TourNotificationViewModel -> TourNotificationService: GetByUserId(SignedUserId)
+activate TourNotificationService
+TourNotificationService -> TourNotificationService: GetAll()
+activate TourNotificationService
+TourNotificationService -> TourNotificationRepository: GetAll()
+activate TourNotificationRepository
+TourNotificationRepository --> TourNotificationService: List<TourNotification>
+deactivate TourNotificationRepository
+TourNotificationService --> TourNotificationService: List<TourNotification>
+deactivate TourNotificationService
+TourNotificationService --> TourNotificationViewModel: List<TourNotification>
+deactivate TourNotificationService
+TourNotificationViewModel --> User
+deactivate TourNotificationViewModel
+
+@enduml

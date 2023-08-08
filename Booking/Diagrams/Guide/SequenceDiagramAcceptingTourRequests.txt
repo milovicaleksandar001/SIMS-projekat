@@ -1,0 +1,71 @@
+@startuml
+title Accepting Tour Requests
+
+actor Guide
+participant TourRequestService
+participant TourService
+participant Tour
+participant TourRequest
+participant TourRequestRepository
+participant GuideRepository
+participant TourRepository
+actor Guest
+
+activate Guide
+activate TourRequestService
+
+Guide -> TourRequestService: Filter tour requests\nby location, number of people,\nlanguage, and date
+TourRequestService -> TourRequestRepository: Retrieve tour requests\nbased on filters
+TourRequestRepository -> TourRequestRepository: Apply filters to tour requests
+TourRequestRepository -> TourRequestRepository: Retrieve matching tour requests
+TourRequestRepository -> TourRequestService: Return filtered tour requests
+
+activate Guest
+
+Guide -> Guide: Select a date range for\nthe accepted tour
+
+alt Guide selects a date range
+    Guide -> Guide: Specify start and end dates\nfor the accepted tour
+    Guide -> TourRequestService: Accept tour request\nand provide date range
+    TourRequestService -> TourRequestService: Validate date range
+    TourRequestService -> TourService: Check guide's availability\nin the provided date range
+    activate TourService
+    TourService -> TourRepository: Query guide's availability\nfor the date range
+    TourRepository -> TourRepository: Retrieve guide's schedule\nfor the date range
+    TourRepository -> TourService: Return guide's availability
+
+    alt Guide is available
+        activate TourService
+        TourService -> Tour: Assign guide to the tour
+        TourRequestService -> TourRequest: Update tour request\nstatus and guide assignment
+        TourRequest -> TourRequestRepository: Update tour request\nstatus and guide assignment
+        TourRequestRepository -> Guest: Send notification\nof tour acceptance\nand appointment details
+        deactivate TourService
+    else Guide is not available
+        TourRequestService -> Guide: Error message\nGuide is not available\nin the specified date range
+        deactivate Guest
+        deactivate Guide
+        deactivate TourRequestService
+        deactivate TourRequestRepository
+        deactivate TourService
+        deactivate TourRepository
+        end
+    end
+else Guide does not select a date range
+    TourRequestService -> Guide: Error message\nNo date range specified
+    deactivate Guest
+    deactivate Guide
+    deactivate TourRequestService
+    deactivate TourRequestRepository
+    deactivate TourService
+    deactivate TourRepository
+    end
+end
+
+deactivate Guest
+deactivate Guide
+deactivate TourRequestService
+deactivate TourRequestRepository
+deactivate TourService
+deactivate TourRepository
+@enduml

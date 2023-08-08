@@ -1,0 +1,44 @@
+﻿<Page x:Class="Booking.View.FirstGuestAllReservations"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Booking.View"
+      xmlns:ns="clr-namespace:Booking.Localization"
+      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FirstGuestAllReservations"  Style="{DynamicResource MyWindowStyle}">
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,10,0,0" Grid.ColumnSpan="2"  HorizontalAlignment="Center">
+            <Image Source="/Resources/Images/booking.png" Height="30" Width="30" ></Image>
+            <Label FontWeight="Bold" FontSize="16" Content="{ns:Loc MyReservationsTitle}"></Label>
+        </StackPanel>
+
+        <DataGrid Grid.Row="1" SelectionMode="Single" AutoGenerateColumns="False" IsReadOnly="True" Margin="80,20,80,20" ItemsSource="{Binding Path = Reservations}" x:Name="ReservationsDataGrid"
+                   SelectedItem="{Binding SelectedReservation, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{ns:Loc AccNameDataGrid}" Width="*" Binding="{Binding Accommodation.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="{ns:Loc StateDataGrid}" Width="*" Binding="{Binding Accommodation.Location.State}"></DataGridTextColumn>
+                <DataGridTextColumn Header="{ns:Loc CityDataGrid}" Width="*" Binding="{Binding Accommodation.Location.City}"></DataGridTextColumn>
+                <DataGridTextColumn Header="{ns:Loc StartDateDataGrid}" Width="*" Binding="{Binding ArrivalDay, StringFormat='{}{0:dd/MM/yyyy}'}"></DataGridTextColumn>
+                <DataGridTextColumn Header="{ns:Loc EndDateDataGrid}" Width="*" Binding="{Binding DepartureDay,  StringFormat='{}{0:dd/MM/yyyy}'}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="{ns:Loc OwnerUsername}" Width="*" Binding="{Binding Accommodation.Owner.Username}" ></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Grid.Column="1"  Height="50" Margin="2">
+            <Button  Margin="5" Height="30" Width="50" FontWeight="Bold" Content="{ns:Loc RateButton}" Command="{Binding Button_Click_RateAccommodationAndOwner}"></Button>
+            <Button  Margin="5" Height="30" Width="100"  FontWeight="Bold"  Content="{ns:Loc ReschaduleButton}"  Command="{Binding Button_Click_ResheduleAccommodationReservation}"></Button>
+            <Button  Margin="5" Height="30" Width="70"  FontWeight="Bold" Content="{ns:Loc CancleButton}"   Command="{Binding Button_Click_CancleReservation}" ></Button>
+            <Button  Margin="5" Height="30" Width="60"  FontWeight="Bold" Content="PDF"   Command="{Binding Button_Click_GeneratePDF}" ></Button>
+            <Button  Margin="5" Height="30" Width="110"  FontWeight="Bold" Content="{ns:Loc ShowMoreDetailsButton}"   Command="{Binding Show_Details_button}" ></Button>
+        </StackPanel>
+    </Grid>
+</Page>

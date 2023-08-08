@@ -1,0 +1,129 @@
+﻿<Window x:Class="Booking.WPF.Views.Guide.GuideAcceptingTourRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.WPF.Views.Guide" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="GuideAcceptingTourRequest" Height="650" Width="883" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#D6E6F2">
+    <Grid>
+        <TextBlock Margin="65,4,0,0" FontWeight="Bold" FontSize="32" Text="Accepting tour request" Foreground="#FFFFF200" >
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <Separator Margin="-18,-505,0,0" Width="730" HorizontalAlignment="Center" />
+
+        <Rectangle  Margin="-20 -325 0 0" Width="730" Height="160" Fill="#C7E2ED" Stroke="Black" StrokeThickness="2" RadiusX="10" RadiusY="10"/>
+
+        <StackPanel Width="700" Height="150" Margin="0 -325 0 0">
+            
+            <Label Margin="-8 15 0 0" FontSize="15">Country:</Label>
+            <ComboBox Width="120" Height="25" Margin="-445 -25 0 0" FontSize="15"
+                SelectedItem="{Binding Path=SelectedCountry, UpdateSourceTrigger=PropertyChanged}"
+                ItemsSource="{Binding Path=CountryCollection}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged" >
+                    <i:InvokeCommandAction Command="{Binding FillCityCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ComboBox>
+
+            <Label Margin="-8 25 0 0" FontSize="15">City:</Label>
+            <ComboBox Width="120" Height="25" Margin="-445 -25 0 0" FontSize="15" 
+                      IsEnabled="{Binding CityComboboxEnabled,UpdateSourceTrigger=PropertyChanged}" 
+                      ItemsSource="{Binding Path=CityCollection}" 
+                      SelectedItem="{Binding Path=SelectedCity, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+        </StackPanel>
+
+        <StackPanel  Width="700" Height="150" Margin="0 -325 0 0">
+            <Label Margin="220 15 0 0" FontSize="15">Guests number:</Label>
+            <TextBox Width="120" Height="25" Margin="110 -25 0 0" FontSize="15" Text="{Binding SelectedNumberOfGuests}"></TextBox>
+            <Label Margin="220 25 0 0" FontSize="15">Language:</Label>
+            <TextBox Width="120" Height="25" Margin="110 -25 0 0" FontSize="15" Text="{Binding SelectedLanguage}"></TextBox>
+        </StackPanel>
+
+        <StackPanel  Width="700" Height="150" Margin="0 -325 0 0">
+            <Label Margin="480 15 0 0" FontSize="15">Start date:</Label>
+            <DatePicker Width="120" Height="25" Margin="550 -26 0 0" FontSize="15" SelectedDate="{Binding StartDate}"></DatePicker>
+            <Label Margin="480 25 0 0" FontSize="15">End date:</Label>
+            <DatePicker Width="120" Height="25" Margin="550 -26 0 0" FontSize="15" SelectedDate="{Binding EndDate}"></DatePicker>
+        </StackPanel>
+
+        <WrapPanel Margin="-10 -195 0 0" Width="180" Height="50">
+            <Button Width="65" Height="30" Content="Filter" Margin="0 0 0 0" FontSize="15" FontWeight="Bold" Command="{Binding Filter}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Width="65" Height="30" Content="Reset" Margin="15 0 0 0" FontSize="15" FontWeight="Bold" Command="{Binding ResetFilter}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </WrapPanel>
+
+        <StackPanel Margin="40 230 59 0">
+
+            <DataGrid 
+            x:Name="dataGrid" 
+            IsReadOnly="True" 
+            Width="725"
+            Height="320"
+            RowHeight="50"
+            AlternationCount="2"
+            AutoGenerateColumns="False"
+            SelectionMode="Single"
+                
+            CanUserResizeColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False"
+            SelectedItem="{Binding SelectedTourRequest}"
+            ItemsSource="{Binding Path=TourRequests, UpdateSourceTrigger=PropertyChanged}" >
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Width="135" Header="State" Binding="{Binding Location.State}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="135" Header="City" Binding="{Binding Location.City}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="130" Header="Language" Binding="{Binding Language}"/>
+                    <DataGridTextColumn Width="100"  Header="Guests Number" Binding="{Binding GuestsNumber}"/>
+                    <DataGridTextColumn Width="108" Header="Start Date" Binding="{Binding StartTime, StringFormat={}{0:dd/MM/yyyy}}" ></DataGridTextColumn>
+                    <DataGridTextColumn Width="109" Header="End Date" Binding="{Binding EndTime, StringFormat={}{0:dd/MM/yyyy}}" ></DataGridTextColumn>
+
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="Background" Value="#ADBAC4"/>
+                        <Style.Triggers>
+                            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                                <Setter Property="Background" Value="#F5F5F5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+            </DataGrid>
+        </StackPanel>
+
+        <WrapPanel Margin="0 560 0 0" Width="160" Height="50">
+            <Button Width="70" Height="40" Content="Accept" Margin="0 0 0 0" FontSize="15" FontWeight="Bold" Command="{Binding Accept}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
+            <Button Width="70" Height="40" Content="Close" Margin="20 0 0 0" FontSize="15" FontWeight="Bold" Command="{Binding Close}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </WrapPanel>
+
+    </Grid>
+</Window>

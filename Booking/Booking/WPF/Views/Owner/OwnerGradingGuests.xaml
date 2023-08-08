@@ -1,0 +1,39 @@
+﻿<Window x:Class="Booking.View.OwnerGradingGuests"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.View"
+        mc:Ignorable="d"
+        Title="OwnerGradingGuests" Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock Margin="10,6,0,0" FontWeight="Bold" FontSize="42" Text="Grading guests" Foreground="#FFFFF200" >
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <Separator Margin="0,-120,0,480" Width="1024" HorizontalAlignment="Center" />
+        <DataGrid x:Name="AccommodationDataGrid" Margin="12 50 12 92" RowHeight="30"
+                      SelectedItem="{Binding SelectedReservation, UpdateSourceTrigger=PropertyChanged}"
+                      ItemsSource="{Binding reservations, UpdateSourceTrigger=PropertyChanged}"
+                      IsReadOnly="True" AutoGenerateColumns="False" Height="526" HeadersVisibility="Column" FontSize="20" Width="980" RenderTransformOrigin="0.503,0.552" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Width="*" Binding="{Binding Accommodation.Name}" />
+                <DataGridTextColumn Header="Arrival Day" Width="*" Binding="{Binding ArrivalDay , StringFormat={}{0:dd/MM/yyyy}}" />
+                <DataGridTextColumn Header="Departure Day" Width="*" Binding="{Binding DepartureDay, StringFormat={}{0:dd/MM/yyyy}}"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <WrapPanel FlowDirection="LeftToRight" Margin="200,620,0,0">
+            <Button Margin ="118 10 0 0 " HorizontalAlignment="Left" ToolTip="Select a reservation and then press this to grade it " Width="150" Height="75" FontWeight="Bold" FontSize="35" Command="{Binding Grade}" >GRADE</Button>
+            <Button Margin="60 10 0 0"  VerticalAlignment="Center" ToolTip="Press to close this window" HorizontalAlignment="Left" Width="150" Height="75" FontWeight="Bold" FontSize="35" Command="{Binding Close}" >CLOSE</Button>
+        </WrapPanel>
+        <WrapPanel FlowDirection="LeftToRight" Margin="785,10,0,671">
+            <Button Margin ="118 5 0 0 " HorizontalAlignment="Left" ToolTip="Press to open wizard" Width="80" Height="30" FontWeight="Bold" FontSize="15" Command="{Binding Wizard}" >Wizard</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,113 @@
+﻿<Page x:Class="Booking.View.HomePageFirstGuest"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:ns="clr-namespace:Booking.Localization"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="800"
+      Title="HomePageFirstGuest"
+      Style="{DynamicResource MyWindowStyle}">
+    <Page.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel >
+                <!-- Placeholder for the TextBox itself -->
+                <AdornedElementPlaceholder x:Name="textBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+        </ControlTemplate>
+    </Page.Resources>
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="20,0,20,0" HorizontalAlignment="Center">
+            <Image Source="/Resources/Images/location.png"></Image>
+            <Label FontWeight="Bold" FontSize="17" Content="{ns:Loc HomePageTitle}"></Label>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="20,0,20,0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="{ns:Loc AccommodationName}" HorizontalAlignment="Left"></Label>
+            <TextBox Grid.Column="1" Grid.Row="0" Margin="3" Text="{Binding Path=SearchName}"></TextBox>
+            <Label Grid.Column="2" Grid.Row="0" Content="{ns:Loc State}" HorizontalAlignment="Right" Margin="0,0,4,0"></Label>
+            <ComboBox Grid.Column="3" ItemsSource="{Binding Path=CountrycomboBox}" Margin="3" 
+                 SelectedItem="{Binding Path=SearchState, UpdateSourceTrigger=PropertyChanged}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged" >
+                        <i:InvokeCommandAction Command="{Binding FillCityCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+
+            <Label Grid.Column="4" Grid.Row="0" Content="{ns:Loc Type}" HorizontalAlignment="Left"></Label>
+            <CheckBox Grid.Column="5" Grid.Row="0" Margin="5" IsChecked="{Binding Path=IsCheckedApartment}" Content="{ns:Loc ApartmentType}"></CheckBox>
+            <CheckBox Grid.Column="6" Grid.Row="0" Margin="5" IsChecked="{Binding Path=IsCheckedCottage}" Content="{ns:Loc CottageType}"></CheckBox>
+            <CheckBox Grid.Column="7" Grid.Row="0" Margin="5" IsChecked="{Binding Path=IsCheckedHouse}" Content="{ns:Loc HouseType}"></CheckBox>
+
+            <Label Grid.Column="0"  Grid.Row="1"  Content="{ns:Loc StayingDays}" HorizontalAlignment="Left"></Label>
+            <TextBox Grid.Column="1"  Grid.Row="1" Margin="3" Text="{Binding Path=SearchReservationDays, UpdateSourceTrigger=PropertyChanged,
+                ValidatesOnDataErrors=True}"  Validation.ErrorTemplate="{StaticResource ValidationTemplate}" ></TextBox>
+            <Label Grid.Column="2"  Grid.Row="1" Content="{ns:Loc City}" HorizontalAlignment="Right" Margin="0,0,10,0"></Label>
+            <ComboBox  Grid.Column="3"  Grid.Row="1" Margin="3" IsEnabled="{Binding CityComboboxEnabled, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=CityCollection}" SelectedItem="{Binding Path=SearchCity, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+            <Label Grid.Column="4"  Grid.Row="1" Content="{ns:Loc NumberOgGuests}" HorizontalAlignment="Left"></Label>
+
+            <TextBox Grid.Column="5"  Grid.Row="1" Margin="3,3,3,0" Text="{Binding Path=SerachGuests, UpdateSourceTrigger=PropertyChanged,
+                ValidatesOnDataErrors=True}"  Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Height="24" VerticalAlignment="Top"></TextBox>
+        </Grid>
+
+        <Button Grid.Row ="2" HorizontalAlignment="Right" Width="120" FontWeight="Bold" Margin="20,15,20,5" Command="{Binding Button_Click_Search}" Content="{ns:Loc SearchButton}" ></Button>
+
+        <StackPanel Grid.Row="3" Margin="20,0,20,0" >
+            <DataGrid x:Name="AccommodationDataGrid" 
+                      SelectedItem="{Binding SelectedAccommodation, UpdateSourceTrigger=PropertyChanged}"
+                      IsReadOnly="True" AutoGenerateColumns="False" Height="350" HeadersVisibility="Column" FontSize="13"  ItemsSource="{Binding Path = Accommodations}" >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="{ns:Loc ImageDataGrid}" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Images[0].Url}" Width="160" Height="150" Margin="2"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="{ns:Loc NameDataGrid}" Width="120" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{ns:Loc StateDataGrid}" Width="100" Binding="{Binding Location.State}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{ns:Loc CityDataGrid}" Width="100" Binding="{Binding Location.City}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{ns:Loc TypeDataGrid}" Width="80"  Binding="{Binding Type}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{ns:Loc CapacityDataGrid}"  Width="80"  Binding="{Binding Capacity}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{ns:Loc ReservationRestricitonsDataGrid}" Binding="{Binding MinNumberOfDays}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{ns:Loc CancelationPeriodDataGrid}" Binding="{Binding CancelationPeriod}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Height="40" VerticalAlignment="Center" Margin="0,0,0,40">
+            <Button Content="{ns:Loc BookButton}"  Margin="5,5,5,5" Grid.Row="1" Height="30" FontWeight="Bold"  Command="{Binding Button_Click_Book}"></Button>
+            <Button Content="{ns:Loc ShowAllButton}"  Margin="5,5,5,5"  Height="30"  FontWeight="Bold" Command="{Binding Button_Click_ShowAll}"></Button>
+            <Button  Content="{ns:Loc ShowImagesButton}"  Margin="5,5,5,5"  Height="30" FontWeight="Bold" Command="{Binding Button_Click_ShowImages}"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

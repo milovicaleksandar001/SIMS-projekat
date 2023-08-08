@@ -1,0 +1,72 @@
+﻿<Window x:Class="Booking.WPF.Views.Owner.OwnerAllForumComments"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.WPF.Views.Owner"
+        mc:Ignorable="d"
+        Title="OwnerAllForumComments" Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock Margin="10,6,0,0" FontWeight="Bold" FontSize="42" Text="Forum comments" Foreground="#FFFFF200" >
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <Separator Margin="0,-120,0,480" Width="1024" HorizontalAlignment="Center" />
+
+        <StackPanel Grid.Row="1" Margin="10,-520,20,0" Height="50" Orientation="Horizontal">
+            <Label FontSize="17" FontWeight="Bold">Forum:</Label>
+            <Label FontSize="17" Content="{Binding ForumLabel}" Width="930" Margin="0,-10,0,0" Height="40"></Label>
+        </StackPanel>
+
+        <ListView Height="450" Width="550"  SelectionMode="Single" SelectedItem="{Binding SelectedComment}" ItemsSource="{Binding ForumComments}" Margin="-420,-20,0,0" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="20" Text="{Binding Forum.Location.State}" FontWeight="Bold" />
+                        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="20" Text="{Binding Forum.Location.City}" FontWeight="Bold" />
+
+                        <StackPanel Grid.Row="1" Grid.Column="0">
+                            <TextBlock FontSize="15" Text="{Binding Comment}" TextWrapping="Wrap"/>
+                        </StackPanel>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" FontSize="15" Text="User: " />
+                        <TextBlock Grid.Row="2" Grid.Column="1" FontSize="15" Text="{Binding User.Username}" />
+
+                        <TextBlock Grid.Row="3" Grid.Column="0" FontSize="15" Text="Reports: " />
+                        <TextBlock Grid.Row="3" Grid.Column="1" FontSize="15" Text="{Binding Reports}" />
+
+                        <TextBlock Grid.Row="4" Grid.Column="0" FontSize="15" Text="Visited: " />
+                        <TextBlock Grid.Row="4" Grid.Column="1" FontSize="15" Text="{Binding Visited}" />
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBox FontSize="15" Width="400" Height="400" ToolTip="Press to enter a comment" Margin="580,30,0,0" TextWrapping="Wrap" Text="{Binding Path=OwnerComment, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Comment" HorizontalAlignment="Left" Margin="720,130,0,0" FontWeight="ExtraBold" VerticalAlignment="Top" FontSize="32" />
+
+        <WrapPanel FlowDirection="LeftToRight" Margin="120,640,0,0">
+            <Button Margin ="118 -10 0 0 " HorizontalAlignment="Left" ToolTip="Press to leave a comment" Width="150" Height="75" FontWeight="Bold" FontSize="28" Command="{Binding LeaveComment}" >COMMENT</Button>
+            <Button Margin="10 -10 0 0"  VerticalAlignment="Center" ToolTip="Choose a comment and press to report it" HorizontalAlignment="Left" Width="150" Height="75" FontWeight="Bold" FontSize="28" Command="{Binding Report}" >REPORT</Button>
+            <Button Margin="60 -10 0 0"  VerticalAlignment="Center" ToolTip="Press to close this window" HorizontalAlignment="Left" Width="150" Height="75" FontWeight="Bold" FontSize="28" Command="{Binding Close}" >CLOSE</Button>
+        </WrapPanel>
+        <WrapPanel FlowDirection="LeftToRight" Margin="785,10,0,671">
+            <Button Margin ="118 5 0 0 " HorizontalAlignment="Left" ToolTip="Press to open wizard" Width="80" Height="30" FontWeight="Bold" FontSize="15" Command="{Binding Wizard}" >Wizard</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

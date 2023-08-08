@@ -1,0 +1,40 @@
+﻿<Page x:Class="Booking.View.FisrtGuestAllRequests"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Booking.View"
+      xmlns:ns="clr-namespace:Booking.Localization"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FisrtGuestAllRequests"  Style="{DynamicResource MyWindowStyle}">
+    
+
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,20,10,5" HorizontalAlignment="Center">
+            <Image Source="/Resources/Images/request.png" Height="30" Width="30"></Image>
+            <Label FontWeight="Bold" FontSize="17" Content="{ns:Loc MyReschaduleRequestsTitle}"></Label>
+        </StackPanel>
+        <DataGrid Grid.Row="1" SelectionMode="Single" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Path=Requests}"
+                  Name="RequestsDataGrid" HorizontalAlignment="Center" Margin="100,20,100,100" SelectedItem="{Binding SelectedRequest}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{ns:Loc AccNameDataGrid}"  Width="140" Binding="{Binding AccommodationReservation.Accommodation.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="{ns:Loc StateDataGrid}" Width="*"  Binding="{Binding AccommodationReservation.Accommodation.Location.State}"></DataGridTextColumn>
+                <DataGridTextColumn Header="{ns:Loc CityDataGrid}" Width="*"  Binding="{Binding AccommodationReservation.Accommodation.Location.City}"></DataGridTextColumn>
+                <DataGridTextColumn Header="{ns:Loc StartDateDataGrid}" Width="*" Binding="{Binding NewArrivalDay, StringFormat='{}{0:dd/MM/yyyy}'}"></DataGridTextColumn>
+                <DataGridTextColumn  Header="{ns:Loc EndDateDataGrid}" Width="*"  Binding="{Binding NewDeparuteDay,  StringFormat='{}{0:dd/MM/yyyy}'}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Status" Width="*"  Binding="{Binding Status}" ></DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button  Content="{ns:Loc ShowMoreDetailsButton}" FontWeight="Bold" Width="140" Margin="10"  Command="{Binding ClickShowMoreDetails}"></Button>
+        </StackPanel>
+        
+    </Grid>
+</Page>

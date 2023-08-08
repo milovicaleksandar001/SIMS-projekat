@@ -1,0 +1,38 @@
+@startuml
+
+actor Owner
+
+participant "OwnerSchedulingRenovationsViewModel" as ViewModel
+participant "AccommodationReservationService" as ReservationService
+participant "AccommodationRenovationService" as RenovationService
+participant "AccommodationService" as AccommodationService
+participant "AccommodationReservationRepository" as ReservationRepository
+participant "AccommodationRenovationRepository" as RenovationRepository
+participant "Window" as Window
+participant "MessageBox" as MessageBox
+participant "Accommodation" as Accommodation
+participant "AccommodationReservation" as Reservation
+participant "AccommodationRenovation" as Renovation
+
+note over ViewModel, ReservationService, RenovationService, AccommodationService, ReservationRepository, RenovationRepository: Dependencies injected via DI
+
+Owner -> ViewModel: Selects accommodation and renovation details
+ViewModel -> ReservationService: SuggestDatesForRenovation(startDay, endDay, duration, selectedAccommodation)
+ReservationService -> AccommodationService: GetSignedInOwner()
+AccommodationService -> Accommodation: Get owner ID
+ReservationService -> Reservation: Create new reservation
+ReservationService -> AccommodationService: SaveReservation(newReservation)
+ReservationService -> ReservationRepository: Save(list)
+ReservationRepository -> ReservationRepository: Update reservations list
+ReservationRepository -> ReservationRepository: Serialize reservations to CSV
+ReservationService -> Renovation: Create new renovation
+ReservationService -> AccommodationService: SaveRenovation(newRenovation)
+RenovationService -> RenovationRepository: Save(list)
+RenovationRepository -> RenovationRepository: Update renovations list
+RenovationRepository -> RenovationRepository: Serialize renovations to CSV
+RenovationService -> ViewModel: Notify renovation scheduled
+ViewModel -> MessageBox: Show "Renovation successfully scheduled"
+ViewModel -> Window: Close the window
+
+@enduml
+

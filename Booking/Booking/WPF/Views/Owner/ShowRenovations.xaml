@@ -1,0 +1,53 @@
+﻿<Window x:Class="Booking.WPF.Views.Owner.ShowRenovations"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.WPF.Views.Owner"
+        mc:Ignorable="d"
+        Title="ShowRenovations" Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock Margin="10,6,0,0" FontWeight="Bold" FontSize="32" Text="Show renovations" Foreground="#FFFFF200" >
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <Separator Margin="0,-150,0,480" Width="1024" HorizontalAlignment="Center" />
+
+        <DataGrid 
+            x:Name="dataGrid" 
+            IsReadOnly="True" 
+            Margin="12 50 12 92" 
+            RowHeight="40"
+            FontSize="15"
+            Height="550"
+            AutoGenerateColumns="False"
+            SelectedItem="{Binding SelectedRenovation}"
+            SelectionMode="Single"
+            CanUserResizeColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserReorderColumns="False"
+            ItemsSource="{Binding Path=Renovations, UpdateSourceTrigger=PropertyChanged}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Header="Accommodation name" Binding="{Binding Accommodation.Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Starting date" Width="*" Binding="{Binding StartDay , StringFormat={}{0:dd/MM/yyyy}}" />
+                <DataGridTextColumn Header="Ending date" Width="*" Binding="{Binding EndDay, StringFormat={}{0:dd/MM/yyyy}}"/>
+                <DataGridTemplateColumn Header="Description" Width="90">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Show" ToolTip="Press to see the description for this renovation" Command="{Binding DataContext.ShowDescription, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <WrapPanel FlowDirection="LeftToRight" Margin="180,650,0,0">
+            <Button Margin ="118 -10 0 0 " HorizontalAlignment="Left" ToolTip="Choose a request and then press this to accept the date move request and change it" Width="150" Height="75" FontWeight="Bold" FontSize="35" Command="{Binding Delete}" >Delete</Button>
+            <Button Margin="60 -10 0 0"  VerticalAlignment="Center" ToolTip="Press to close this window" HorizontalAlignment="Left" Width="150" Height="75" FontWeight="Bold" FontSize="35" Command="{Binding Close}" >CLOSE</Button>
+        </WrapPanel>
+        <WrapPanel FlowDirection="LeftToRight" Margin="785,10,0,671">
+            <Button Margin ="118 5 0 0 " HorizontalAlignment="Left" ToolTip="Press to open wizard" Width="80" Height="30" FontWeight="Bold" FontSize="15" Command="{Binding Wizard}" >Wizard</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

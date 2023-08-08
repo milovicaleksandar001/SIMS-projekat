@@ -1,0 +1,96 @@
+﻿<Window x:Class="Booking.View.SuperOwner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.View"
+        mc:Ignorable="d"
+        Title="SuperOwner" Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock Margin="10,6,0,0" FontWeight="Bold" FontSize="42" Text="Super owner" Foreground="#FFFFF200" >
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <Separator Margin="0,-120,0,480" Width="1024" HorizontalAlignment="Center" />
+        <Label Content="Number of grades" FontSize="20" Margin="-650,-275,50,0" Width="200" Height="100" Panel.ZIndex="1" Foreground="#FFF200" FontWeight="ExtraBold"></Label>
+        <TextBlock x:Name="NumberOfGrades"
+                   Text="{Binding NumberOfGradesText}"
+                   Margin="200,-310,20,0"                  
+                   FontSize="50"
+                   ToolTip="This is the number of grades you have"
+                   FontStyle="Italic"
+                   FontWeight="SemiBold"
+                   Foreground="Black"
+                   Panel.ZIndex="1"
+                   Height="100" Width="600"></TextBlock>
+
+        <Label Content="Average grade" FontSize="20" Margin="-670,170,0,0" Width="200" Height="100" Panel.ZIndex="1" Foreground="#FFF200" FontWeight="ExtraBold"></Label>
+        <TextBlock x:Name="AverageGrade"
+                   Text="{Binding AverageGradeText}"
+                   Margin="200,135,0,0"                    
+                   FontSize="50"
+                   ToolTip="This is your average grade"
+                   FontStyle="Italic"
+                   FontWeight="SemiBold"
+                   Foreground="Black"
+                   Panel.ZIndex="1"
+                   Height="100" Width="600"></TextBlock>
+
+        <TextBlock x:Name="IsSuper"
+                   Text="{Binding IsSuperText}"
+                   Margin="0,400,0,0"                    
+                   FontSize="23"
+                   FontStyle="Italic"
+                   FontWeight="SemiBold"
+                   Foreground="Black"
+                   Panel.ZIndex="1"
+                   Height="100" Width="1000"></TextBlock>
+        <Canvas>
+            <Rectangle Width="600" Height="100" Stroke="Black" StrokeThickness="2" Canvas.Left="280" Canvas.Top="150" Fill="#F5F5F5" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+                </Rectangle.Effect>
+                <Rectangle.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,600,100"/>
+                </Rectangle.Clip>
+            </Rectangle>
+            <Rectangle Width="600" Height="100" Stroke="Black" StrokeThickness="2" Canvas.Left="280" Canvas.Top="370" Fill="#F5F5F5" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+                </Rectangle.Effect>
+                <Rectangle.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,600,100"/>
+                </Rectangle.Clip>
+            </Rectangle>
+            <Rectangle Width="200" Height="100" Stroke="Black" StrokeThickness="2" Canvas.Left="50" Canvas.Top="150" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="#303841"/>
+                </Rectangle.Fill>
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+                </Rectangle.Effect>
+                <Rectangle.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,200,100"/>
+                </Rectangle.Clip>
+            </Rectangle>
+
+            <Rectangle Width="200" Height="100" Stroke="Black" StrokeThickness="2" Canvas.Left="50" Canvas.Top="371" Fill="#303841" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="2" Opacity="0.5"/>
+                </Rectangle.Effect>
+                <Rectangle.Clip>
+                    <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,200,100"/>
+                </Rectangle.Clip>
+            </Rectangle>
+        </Canvas>
+        <WrapPanel FlowDirection="LeftToRight" Margin="500,650,0,0">
+            <Button Margin="20 -10 0 0"  VerticalAlignment="Center" ToolTip="Press to close this window" HorizontalAlignment="Left" Width="150" Height="75" FontWeight="Bold" FontSize="32" Command="{Binding CloseSuper}" >CLOSE</Button>
+        </WrapPanel>
+        <WrapPanel FlowDirection="LeftToRight" Margin="785,10,0,671">
+            <Button Margin ="118 5 0 0 " HorizontalAlignment="Left" ToolTip="Press to open wizard" Width="80" Height="30" FontWeight="Bold" FontSize="15" Command="{Binding Wizard}" >Wizard</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

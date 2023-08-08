@@ -1,0 +1,103 @@
+title SuperGuest
+
+@startuml
+title Super-Guest Functionality
+
+actor Guest
+
+participant FirstGuestProfileViewModel
+participant SuperGuestService
+participant SuperGuestRepository
+
+entryspacing 0.4
+activate FirstGuestProfileViewModel
+
+Guest -> FirstGuestProfileViewModel: Create instance
+
+FirstGuestProfileViewModel -> SuperGuestService: Inject dependencies
+FirstGuestProfileViewModel -> UserService: GetById(SignedFirstGuestId)
+SuperGuestService -> UserRepository: GetById(SignedGuest.Id)
+
+activate SuperGuestService
+activate UserService
+activate UserRepository
+
+User --> UserService: User instance
+User --> SuperGuestService: User instance
+
+SuperGuestService -> SuperGuestService: CheckSuperGuest()
+
+SuperGuestService -> SuperGuestService: CalculateReservationsForLastYear(SignedGuest)
+
+SuperGuestService -> SuperGuestService: CheckNumberOfReservations(SignedGuest)
+
+SuperGuestService -> UserRepository: Update(signedGuest)
+
+SuperGuestService -> SuperGuestRepository: Add(superGuest)
+
+SuperGuestRepository -> Serializer: ToCSV(FilePath, _superGuests)
+
+SuperGuestService --> FirstGuestProfileViewModel: SetSuperGuest(SignedGuest)
+SuperGuestService --> FirstGuestProfileViewModel: NumberOfReservations
+
+FirstGuestProfileViewModel -> FirstGuestProfileViewModel: OnPropertyChanged()
+
+SuperGuestService --> FirstGuestProfileViewModel: TypeOfGuest
+SuperGuestService --> FirstGuestProfileViewModel: StarImageVisibility
+SuperGuestService --> FirstGuestProfileViewModel: BonusPoints
+
+SuperGuestService --> SuperGuestService: SetActivationDate(SignedGuest)
+
+SuperGuestService -> SuperGuestService: GetGeustsReservatonst(SignedGuest)
+
+SuperGuestService -> AccommodationResevationRepository: GetAll()
+
+SuperGuestService -> AccommodationRepository: GetById(reservation.Accommodation.Id)
+SuperGuestService -> LocationRepository: GetById(reservation.Accommodation.Location.Id)
+SuperGuestService -> UserRepository: GetById(reservation.Accommodation.Owner.Id)
+SuperGuestService -> UserRepository: GetById(SignedGuest.Id)
+
+SuperGuestService --> SuperGuestService: Copy reservations
+
+SuperGuestService --> SuperGuestService: OrderBy(r => r.DepartureDay)
+
+SuperGuestService --> SuperGuestService: SetActivationDate
+
+SuperGuestService -> UserRepository: Update(signedGuest)
+
+SuperGuestService -> SuperGuestRepository: Add(superGuest)
+
+SuperGuestRepository -> Serializer: ToCSV(FilePath, _superGuests)
+
+SuperGuestService --> FirstGuestProfileViewModel: SetSuperGuest(SignedGuest)
+SuperGuestService --> FirstGuestProfileViewModel: NumberOfReservations
+
+FirstGuestProfileViewModel -> FirstGuestProfileViewModel: OnPropertyChanged()
+
+SuperGuestService --> FirstGuestProfileViewModel: TypeOfGuest
+SuperGuestService --> FirstGuestProfileViewModel: StarImageVisibility
+SuperGuestService --> FirstGuestProfileViewModel: BonusPoints
+
+SuperGuestService -> SuperGuestService: CalculateReservationsForLastYear(SignedGuest)
+
+SuperGuestService -> SuperGuestRepository: GetSuperBySignedGuestId(SignedGuest.Id)
+
+SuperGuestService --> FirstGuestProfileViewModel: UpdateSuperGuest(SignedGuest, numberOfReservations)
+
+SuperGuestService -> SuperGuestRepository: Update(superGuest)
+
+SuperGuestRepository -> Serializer: ToCSV(FilePath, _superGuests)
+
+SuperGuestService -> SuperGuestRepository: GetSuperBySignedGuestId(SignedGuest.Id)
+
+SuperGuestService --> FirstGuestProfileViewModel: UpdateSuperGuest(SignedGuest, numberOfReservations)
+
+SuperGuestService --> FirstGuestProfileViewModel: SetOrdinaryGuest(superGuest, SignedGuest)
+
+SuperGuestService -> SuperGuestRepository: Delete(superGuest)
+
+SuperGuestRepository -> Serializer: ToCSV(FilePath, _superGuests)
+
+SuperGuestService --> FirstGuestProfileViewModel: SetOrdinaryGuest()
+
+Super

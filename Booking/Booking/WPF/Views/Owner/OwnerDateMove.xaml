@@ -1,0 +1,44 @@
+﻿<Window x:Class="Booking.View.OwnerDateMove"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.View"
+        mc:Ignorable="d"
+        Title="OwnerDateMove" Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock Margin="10,6,0,0" FontWeight="Bold" FontSize="32" Text="Date move requests" Foreground="#FFFFF200" >
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <Separator Margin="0,-150,0,480" Width="1024" HorizontalAlignment="Center" />
+
+        <DataGrid x:Name="DateMoveRequests" 
+                      SelectedItem="{Binding SelectedAccommodationReservationRequest, UpdateSourceTrigger=PropertyChanged}"
+                      ItemsSource="{Binding Requests}"
+                      IsReadOnly="True" AutoGenerateColumns="False" Height="520" HeadersVisibility="Column" Margin="-320 -60 0 0" FontSize="12" Width="650" RenderTransformOrigin="0.503,0.552" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Accommodation name" Width="*" Binding="{Binding AccommodationReservation.Accommodation.Name}" />
+                <DataGridTextColumn Header="Previous starting day" Width="*" Binding="{Binding AccommodationReservation.ArrivalDay , StringFormat={}{0:dd/MM/yyyy}}" />
+                <DataGridTextColumn Header="Previous end day" Width="110" Binding="{Binding AccommodationReservation.DepartureDay, StringFormat={}{0:dd/MM/yyyy}}"/>
+                <DataGridTextColumn Header="New starting day" Width="110" Binding="{Binding NewArrivalDay , StringFormat={}{0:dd/MM/yyyy}}" />
+                <DataGridTextColumn Header="New end day" Width="85" Binding="{Binding NewDeparuteDay, StringFormat={}{0:dd/MM/yyyy}}"/>
+                <DataGridTextColumn Header="Accessable" Width="75" Binding="{Binding Accessable}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Reasoning" HorizontalAlignment="Left" Margin="750,70,0,0" FontWeight="ExtraBold" VerticalAlignment="Top" FontSize="32" />
+        <TextBox HorizontalAlignment="Left" ToolTip="Press to enter a reason why you declined the date move request" Margin="690,125,0,0" TextWrapping="Wrap" Height="470" VerticalAlignment="Top" Width="310" FontSize="15" Text="{Binding Path=OwnerComment, UpdateSourceTrigger=PropertyChanged}"/>
+        <WrapPanel FlowDirection="LeftToRight" Margin="120,640,0,0">
+            <Button Margin ="118 -10 0 0 " HorizontalAlignment="Left" ToolTip="Choose a request and then press this to accept the date move request and change it" Width="150" Height="75" FontWeight="Bold" FontSize="35" Command="{Binding Accept}" >ACCEPT</Button>
+            <Button Margin="10 -10 0 0"  VerticalAlignment="Center" ToolTip="Choose a request and then press this to reject the date move request, everything will stay the same" HorizontalAlignment="Left" Width="150" Height="75" FontWeight="Bold" FontSize="35" Command="{Binding Reject}" >REJECT</Button>
+            <Button Margin="60 -10 0 0"  VerticalAlignment="Center" ToolTip="Press to close this window" HorizontalAlignment="Left" Width="150" Height="75" FontWeight="Bold" FontSize="35" Command="{Binding Close}" >CLOSE</Button>
+        </WrapPanel>
+        <WrapPanel FlowDirection="LeftToRight" Margin="785,10,0,671">
+            <Button Margin ="118 5 0 0 " HorizontalAlignment="Left" ToolTip="Press to open wizard" Width="80" Height="30" FontWeight="Bold" FontSize="15" Command="{Binding Wizard}" >Wizard</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

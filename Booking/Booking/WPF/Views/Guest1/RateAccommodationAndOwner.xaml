@@ -1,0 +1,157 @@
+﻿<Page x:Class="Booking.View.RateAccommodationAndOwner"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:ns="clr-namespace:Booking.Localization"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="900"
+      Title="RateAccommodationAndOwner"  Style="{DynamicResource MyWindowStyle}">
+
+    <Page.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <!-- Placeholder for the TextBox itself -->
+                <AdornedElementPlaceholder x:Name="textBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+        </ControlTemplate>
+    </Page.Resources>
+    <Grid >
+        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="45"/>
+           
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+            <Image Source="/Resources/Images/medal.png" Width="50" Height="45"></Image>
+            <Label FontWeight="Bold" FontSize="17" VerticalAlignment="Center" Content="{ns:Loc RateAccommodationAccAndOwnerTitle}"></Label>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="35,0,0,0">
+            <Label Content="{ns:Loc AccommodationLabel}" FontWeight="Bold" Width="200" FontSize="15"></Label>
+            <Label Content="{Binding AccommodationLabel}" Width="400" FontSize="15" FontWeight="Bold"></Label>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal"   HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,0,0,0">
+            <Label Content="{ns:Loc OwnerLabel}" FontWeight="Bold" Width="200" FontSize="15"></Label>
+            <Label Content="{Binding OwnerLabel}" Width="400" FontSize="15" FontWeight="Bold"></Label>
+        </StackPanel>
+
+        <Grid Grid.Row="3" Margin="35,0,0,3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
+               
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="205"/>
+                <ColumnDefinition Width="190"/>
+                <ColumnDefinition Width="240"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left"  FontSize="15"  Content="{ns:Loc RateCleanliness}" ></Label>
+            <ComboBox x:Name="comboBoxCleaness"  ItemsSource="{Binding Path= comboBoxCleaness}" SelectedItem="{Binding Path=Cleaness, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, NotifyOnValidationError=True}" 
+                       Validation.ErrorTemplate="{StaticResource ValidationTemplate}" Grid.Row="0" Grid.Column="1" Margin="5" VerticalAlignment="Top" Height="30" >
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Style.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+
+            <Label Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" FontSize="14" Content="{ns:Loc RateOwnerCourtesy}"></Label>
+            <ComboBox  x:Name="comboBoxCourtesy"  ItemsSource="{Binding Path= comboBoxCourtesy}"  SelectedItem="{Binding Path=Courtesy, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                 Validation.ErrorTemplate="{StaticResource ValidationTemplate}"
+                        Grid.Row="1" Grid.Column="1"  VerticalAlignment="Top" Margin="5" Height="30">
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Style.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+
+            <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left"  FontSize="14" Content="{ns:Loc AddCommnet}"></Label>
+            <TextBox Grid.Row ="2" Grid.Column="1" Height="60" Margin="5" VerticalAlignment="Top" Text="{Binding Path= Comment, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                 Validation.ErrorTemplate="{StaticResource ValidationTemplate}" AcceptsReturn="True" TextWrapping="Wrap">
+                <TextBox.Style>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Style.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+
+            <Label Grid.Row="0" Grid.Column="2"  HorizontalAlignment="Right" FontSize="14" Content="{ns:Loc AddPicture}"></Label>
+            <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" >
+                <Button  Height="30" Width="30" FontSize="14" FontWeight="Black"  Command="{Binding RemovePicture}" Background="LightGoldenrodYellow">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image  Width="25" Height="30" Source="/Resources/Images/minus.png"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <TextBox   HorizontalAlignment="Left" TextWrapping="Wrap" Width="170" FontSize="15" Margin="5" Text="{Binding Path=TbPictures}"/>
+                <Button  Height="30" Width="30" FontSize="14" FontWeight="Black" Command="{Binding AddPicture}" Background="LightGoldenrodYellow">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image  Width="25" Height="30" Source="/Resources/Images/more.png"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Stretch">
+                <Button  Height="30" Width="30" Command="{Binding PreviousPicture}" Visibility="{Binding ButtonPreviousVisibility}" Background="LightGoldenrodYellow">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image  Width="25" Height="30" Source="/Resources/Images/prevoius.png"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Image  Stretch="UniformToFill" Width="250" Height="150" Source="{Binding ImageSlideshowSource}" Margin="5"/>
+                <Button  Height="30" Width="30" Command="{Binding NextPicture}" Visibility="{Binding ButtonNextVisibility}" Background="LightGoldenrodYellow">
+                    <Button.Content>
+                        <StackPanel Orientation="Horizontal">
+                            <Image  Width="25" Height="30" Source="/Resources/Images/next.png"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button  Content="{ns:Loc SubmitButton}"  FontWeight="Bold" Margin="5" Width="100" Command="{Binding Button_Click_Subbmit}" Height="30" ></Button>
+        </StackPanel>
+
+        <ContentControl Content="{Binding CurrentPage}" Grid.Row="4" Margin="280,5,280,5">
+            <ContentControl.ContentTemplate>
+                <DataTemplate>
+                    <Frame Content="{Binding}" />
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
+        
+    </Grid>
+
+</Page>

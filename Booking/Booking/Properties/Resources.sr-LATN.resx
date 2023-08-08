@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccImgesTitle" xml:space="preserve">
+    <value>Slike smestaja</value>
+  </data>
+  <data name="AccNameDataGrid" xml:space="preserve">
+    <value>Naziv smestaja</value>
+  </data>
+  <data name="AccommodationImage" xml:space="preserve">
+    <value>Slika smestaja:</value>
+  </data>
+  <data name="AccommodationLabel" xml:space="preserve">
+    <value>Smestaj:</value>
+  </data>
+  <data name="AccommodationName" xml:space="preserve">
+    <value>Naziv smestaja:</value>
+  </data>
+  <data name="AddComment" xml:space="preserve">
+    <value>Dodaj prvi komentar:</value>
+  </data>
+  <data name="AddCommnet" xml:space="preserve">
+    <value>Dodaj komentar:</value>
+  </data>
+  <data name="AddForumComment" xml:space="preserve">
+    <value>Dodaj komentar na forumu:</value>
+  </data>
+  <data name="AddPicture" xml:space="preserve">
+    <value>Dodaj sliku:</value>
+  </data>
+  <data name="ApartmentType" xml:space="preserve">
+    <value>APARTMAN</value>
+  </data>
+  <data name="ArrivalDayDataGrid" xml:space="preserve">
+    <value>Dan dolaska</value>
+  </data>
+  <data name="ArrivalDayDetails" xml:space="preserve">
+    <value>Dan dolaska:</value>
+  </data>
+  <data name="BonusPoints" xml:space="preserve">
+    <value>Bonus poeni:</value>
+  </data>
+  <data name="BookAccTitle" xml:space="preserve">
+    <value>Rezervisite svoj smestaj!</value>
+  </data>
+  <data name="BookButton" xml:space="preserve">
+    <value>REZERVISI</value>
+  </data>
+  <data name="CancelationPeriodDataGrid" xml:space="preserve">
+    <value>Period otkazivanja</value>
+  </data>
+  <data name="CancleButton" xml:space="preserve">
+    <value>OTKAZI</value>
+  </data>
+  <data name="CapacityDataGrid" xml:space="preserve">
+    <value>Kapacitet</value>
+  </data>
+  <data name="ChangeTheme" xml:space="preserve">
+    <value>Promena teme</value>
+  </data>
+  <data name="ChcekInCheckOut" xml:space="preserve">
+    <value>Vreme dolaska - vreme odlaska:</value>
+  </data>
+  <data name="ChooseArrivalDay" xml:space="preserve">
+    <value>Izaberite dan dolaska:</value>
+  </data>
+  <data name="ChooseDepartureDay" xml:space="preserve">
+    <value>Izaberite dan odlaska:</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Grad:</value>
+  </data>
+  <data name="CityDataGrid" xml:space="preserve">
+    <value>Grad</value>
+  </data>
+  <data name="CleanlinessDataGrid" xml:space="preserve">
+    <value>Cistoca</value>
+  </data>
+  <data name="CloseForumButton" xml:space="preserve">
+    <value>ZATVORI FORUM</value>
+  </data>
+  <data name="CommunicationDataGrid" xml:space="preserve">
+    <value>Komunikacija</value>
+  </data>
+  <data name="CottageType" xml:space="preserve">
+    <value>KOLIBA</value>
+  </data>
+  <data name="CreateForumTitle" xml:space="preserve">
+    <value>Kreiraj forum</value>
+  </data>
+  <data name="darkTheme" xml:space="preserve">
+    <value>TAMNO</value>
+  </data>
+  <data name="DepartureDayDataGrid" xml:space="preserve">
+    <value>Dan odlaska</value>
+  </data>
+  <data name="DeparuteDayDetails" xml:space="preserve">
+    <value>Dan odlaska:</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Krajnji datum:</value>
+  </data>
+  <data name="EndDateDataGrid" xml:space="preserve">
+    <value>Krajnji datum</value>
+  </data>
+  <data name="ForumCommentsTitle" xml:space="preserve">
+    <value>Komentari na forumu</value>
+  </data>
+  <data name="Forums" xml:space="preserve">
+    <value>Forumi</value>
+  </data>
+  <data name="GeneratePDFButton" xml:space="preserve">
+    <value>Generisi pdf</value>
+  </data>
+  <data name="GeneratePdfQuestion" xml:space="preserve">
+    <value>Da li zelite pdf izvestaj o reservaciji?</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>PocetnaStrana</value>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>Koja je tvoja sledeca destinacija?</value>
+  </data>
+  <data name="HouseType" xml:space="preserve">
+    <value>KUCA</value>
+  </data>
+  <data name="ImageDataGrid" xml:space="preserve">
+    <value>Slika</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Jezik</value>
+  </data>
+  <data name="LatenessDataGrid" xml:space="preserve">
+    <value>Kasnjenje</value>
+  </data>
+  <data name="LeaveCommentButton" xml:space="preserve">
+    <value>Ostavi komentar</value>
+  </data>
+  <data name="Level1NiceToHave" xml:space="preserve">
+    <value>Level1  - Pozeljno</value>
+  </data>
+  <data name="Level2MinorComplaints" xml:space="preserve">
+    <value>Level2 - Manje primedbe</value>
+  </data>
+  <data name="Level3ReallyBothersome" xml:space="preserve">
+    <value>Level3 - Veoma uznemiravajuce</value>
+  </data>
+  <data name="Level4ReallyNecessary" xml:space="preserve">
+    <value>Level4 - Jako nepohodno</value>
+  </data>
+  <data name="Level5VeryBadCondition" xml:space="preserve">
+    <value>Level5 - Preterano lose stanje</value>
+  </data>
+  <data name="lightTheme" xml:space="preserve">
+    <value>SVETLO</value>
+  </data>
+  <data name="LogOut" xml:space="preserve">
+    <value>Odjavi se</value>
+  </data>
+  <data name="MyProfile" xml:space="preserve">
+    <value>Moj profil</value>
+  </data>
+  <data name="MyProfileTitle" xml:space="preserve">
+    <value>Moj profil</value>
+  </data>
+  <data name="MyReschaduleRequestsTitle" xml:space="preserve">
+    <value>Moji zahtevi za pomeranje</value>
+  </data>
+  <data name="MyReservations" xml:space="preserve">
+    <value>Rezervacije</value>
+  </data>
+  <data name="MyReservationsTitle" xml:space="preserve">
+    <value>Moje rezervacije</value>
+  </data>
+  <data name="MyReviewsTitle" xml:space="preserve">
+    <value>Moje recenzije</value>
+  </data>
+  <data name="NameDataGrid" xml:space="preserve">
+    <value>Naziv</value>
+  </data>
+  <data name="NextButton" xml:space="preserve">
+    <value>SLEDECA</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Ne</value>
+  </data>
+  <data name="NumberOfResevations" xml:space="preserve">
+    <value>Broj rezervacija:</value>
+  </data>
+  <data name="NumberOgGuests" xml:space="preserve">
+    <value>Broj gostiju:</value>
+  </data>
+  <data name="OpenForumButton" xml:space="preserve">
+    <value>OTVORI FORUM</value>
+  </data>
+  <data name="OwnerLabel" xml:space="preserve">
+    <value>Vlasnik:</value>
+  </data>
+  <data name="OwnersComment" xml:space="preserve">
+    <value>Komentar vlasnika:</value>
+  </data>
+  <data name="OwnerUsername" xml:space="preserve">
+    <value>Vlasnik</value>
+  </data>
+  <data name="OwnerUsernameDataGrid" xml:space="preserve">
+    <value>Owner</value>
+  </data>
+  <data name="PreviousButton" xml:space="preserve">
+    <value>PRETHODNA</value>
+  </data>
+  <data name="QuickSearch" xml:space="preserve">
+    <value>Brza pretraga</value>
+  </data>
+  <data name="QuickSearchTitle" xml:space="preserve">
+    <value>Bilo kada - bilo gde</value>
+  </data>
+  <data name="RateAccommodationAccAndOwnerTitle" xml:space="preserve">
+    <value>Oceni smestaj i vlasnika!</value>
+  </data>
+  <data name="RateButton" xml:space="preserve">
+    <value>OCENI</value>
+  </data>
+  <data name="RateCleanliness" xml:space="preserve">
+    <value>Oceni cistocu:</value>
+  </data>
+  <data name="RateOwnerCourtesy" xml:space="preserve">
+    <value>Oceni usluge vlasnika:</value>
+  </data>
+  <data name="RecommodationTitle" xml:space="preserve">
+    <value>Prepouka za renoviranje</value>
+  </data>
+  <data name="RenovationApproval" xml:space="preserve">
+    <value>Da li zelite da date predlog za renoviranje?</value>
+  </data>
+  <data name="RenovationUrgency" xml:space="preserve">
+    <value>Hitnost za renoviranjem:</value>
+  </data>
+  <data name="RenvationArea" xml:space="preserve">
+    <value>Oblast za renoviranje:</value>
+  </data>
+  <data name="RequestDetailsTitle" xml:space="preserve">
+    <value>Detaljniji prikaz zahteva</value>
+  </data>
+  <data name="ReschaduleButton" xml:space="preserve">
+    <value>POMERI</value>
+  </data>
+  <data name="ReschduleResrvationTitle" xml:space="preserve">
+    <value>Zahtev za pomeranje rezervacije</value>
+  </data>
+  <data name="RescheduleRequests" xml:space="preserve">
+    <value>Zahtevi</value>
+  </data>
+  <data name="ReservationDays" xml:space="preserve">
+    <value>Rezervisani datumi:</value>
+  </data>
+  <data name="ReservationDetailsTitle" xml:space="preserve">
+    <value>Detalji rezervacije</value>
+  </data>
+  <data name="ReservationRequestDates" xml:space="preserve">
+    <value>Datum zahteva:</value>
+  </data>
+  <data name="ReservationRestricitonsDataGrid" xml:space="preserve">
+    <value>Ogranicenja rezervacije</value>
+  </data>
+  <data name="ReserveButton" xml:space="preserve">
+    <value>REZERVISI</value>
+  </data>
+  <data name="ResrevedBy" xml:space="preserve">
+    <value>Reservisao/la:</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Recenzije</value>
+  </data>
+  <data name="RuleFollowingDataGrid" xml:space="preserve">
+    <value>Postovanje pravila</value>
+  </data>
+  <data name="SearchButton" xml:space="preserve">
+    <value>PRETRAGA</value>
+  </data>
+  <data name="SendRequestButton" xml:space="preserve">
+    <value>POSALJI ZAHTEV</value>
+  </data>
+  <data name="ShowAllButton" xml:space="preserve">
+    <value>PRIKAZ SVIH</value>
+  </data>
+  <data name="ShowAllForumsTitle" xml:space="preserve">
+    <value>Forumi</value>
+  </data>
+  <data name="ShowForumComments" xml:space="preserve">
+    <value>PRIKAZ KOMENTARA</value>
+  </data>
+  <data name="ShowImagesButton" xml:space="preserve">
+    <value>PRIKAZI SLIKE</value>
+  </data>
+  <data name="ShowMoreDetailsButton" xml:space="preserve">
+    <value>DETALJNIJI PRIKAZ</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Pocetni datum:</value>
+  </data>
+  <data name="StartDateDataGrid" xml:space="preserve">
+    <value>Pocetni datum</value>
+  </data>
+  <data name="State" xml:space="preserve">
+    <value>Drzava</value>
+  </data>
+  <data name="StateDataGrid" xml:space="preserve">
+    <value>Drzava</value>
+  </data>
+  <data name="StatusRequest" xml:space="preserve">
+    <value>Status zahteva:</value>
+  </data>
+  <data name="SubmitButton" xml:space="preserve">
+    <value>POTVRDI</value>
+  </data>
+  <data name="SuggestedDatesTitle" xml:space="preserve">
+    <value>Predlog sobodnih datuma</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tip:</value>
+  </data>
+  <data name="TypeDataGrid" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Korisnicko ime:</value>
+  </data>
+  <data name="VeryHelpful" xml:space="preserve">
+    <value>Veoma korisno</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Da</value>
+  </data>
+  <data name="YourTitle" xml:space="preserve">
+    <value>Tvoja titula:</value>
+  </data>
+</root>

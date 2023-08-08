@@ -1,0 +1,20 @@
+﻿Booking
+
+
+winexe
+C#
+.cs
+C:\Users\aleks\Desktop\SIMSAfterInterfaces\booking\Booking\Booking\obj\Debug\
+Booking
+none
+false
+DEBUG;TRACE
+C:\Users\aleks\Desktop\SIMSAfterInterfaces\booking\Booking\Booking\App.xaml
+76111611424
+2434444039
+295-1114954632
+156-1433461378
+MainWindow.xaml;Styles\DarkStyle.xaml;Styles\LightStyle.xaml;WPF\Views\Guest2\RateTourImagesView.xaml;WPF\Views\Guest2\TutorialView.xaml;WPF\Views\Guest1\GeneratePdf.xaml;WPF\Views\Guest1\QuickSearch.xaml;WPF\Views\Guest1\ReservationDetails.xaml;WPF\Views\Guide\SelectDateForComplexTour.xaml;WPF\Views\Guest1\AccommodationDateSugestions.xaml;WPF\Views\Guest1\BookAccommodation.xaml;WPF\Views\Guest1\CreateForum.xaml;WPF\Views\Guest1\FirstGuestAllReservations.xaml;WPF\Views\Guest1\FirstGuestHomePage.xaml;WPF\Views\Guest1\FirstGuestProfile.xaml;WPF\Views\Guest1\FirstGuestReviews.xaml;WPF\Views\Guest1\FisrtGuestAllRequests.xaml;WPF\Views\Guest1\RenovationApproval.xaml;WPF\Views\Guest1\RenovationSuggestions .xaml;WPF\Views\Guest1\ShowAccommodationImages.xaml;WPF\Views\Guest1\ShowAllForums.xaml;WPF\Views\Guest1\ShowRequestComment.xaml;WPF\Views\Guest2\CreateTourComplexRequestView.xaml;WPF\Views\Guest2\CreateTourRequestView.xaml;WPF\Views\Guest2\RateTour.xaml;WPF\Views\Guest2\StatisticsView.xaml;WPF\Views\Guest2\TourComplexRequestsView.xaml;WPF\Views\Guest2\TourNotificationView.xaml;WPF\Views\Guest2\TourRequestsView.xaml;WPF\Views\Guide\CustomMessageBox.xaml;WPF\Views\Guide\GuideAcceptingPartOfTour.xaml;WPF\Views\Guide\GuideAcceptingTourRequest.xaml;WPF\Views\Guide\GuideCreateTourBasedOnTourRequest.xaml;WPF\Views\Guide\GuideCreateTourBasedOnTourRequest1.xaml;WPF\Views\Guide\GuideCreateTourBasedOnTourRequest2.xaml;WPF\Views\Guide\GuideRequestsStatistic.xaml;WPF\Views\Guide\GuideSuperGuide.xaml;WPF\Views\Guide\ShowDescription.xaml;WPF\Views\Owner\AccommodationStatisticsByMonths.xaml;WPF\Views\Owner\AccommodationStatisticsByYears.xaml;WPF\Views\Owner\GradingWindow.xaml;WPF\Views\Guest2\ShowVouchers.xaml;WPF\Views\Guide\GuideCreateTour.xaml;WPF\Views\Guide\GuideFollowTourLive.xaml;WPF\Views\Guide\GuideHomePage.xaml;WPF\Views\Guide\GuideKeyPointsCheck.xaml;WPF\Views\Guide\GuideStatisticAboutTours.xaml;WPF\Views\Guide\GuideViewReviews.xaml;WPF\Views\Guide\ShowReviewComment.xaml;WPF\Views\Guest1\HomePageFirstGuest.xaml;WPF\Views\Owner\KeyBoardCustom.xaml;WPF\Views\Owner\OwnerAllForumComments.xaml;WPF\Views\Owner\OwnerAllForums.xaml;WPF\Views\Owner\OwnerDateMove.xaml;WPF\Views\Owner\OwnerGradingGuests.xaml;WPF\Views\Owner\OwnerHomePage.xaml;WPF\Views\Owner\OwnerRegisterAccommodation.xaml;WPF\Views\Owner\OwnerSchedulingRenovations.xaml;WPF\Views\Owner\OwnerViewReviews.xaml;WPF\Views\Guest1\RateAccommodationAndOwner.xaml;WPF\Views\Guest2\ReserveTour.xaml;WPF\Views\Guest1\ReshaduleAccommodationReservation.xaml;WPF\Views\Guest2\SecondGuestHomePage.xaml;WPF\Views\Owner\SchedulingRenovations.xaml;WPF\Views\Owner\ShowCommentViewReview.xaml;WPF\Views\Owner\ShowDescriptionForRenovation.xaml;WPF\Views\Owner\ShowGradeImages.xaml;WPF\Views\Guest2\ShowTourDestinations.xaml;WPF\Views\Guest2\ShowTourImages.xaml;WPF\Views\Owner\ShowOwnerAccommodationImages.xaml;WPF\Views\Owner\ShowRenovations.xaml;WPF\Views\Owner\SiteProposals.xaml;WPF\Views\Guest1\ShowAllForumComments.xaml;WPF\Views\Owner\Wizard.xaml;WPF\Views\SignInForm.xaml;WPF\Views\Owner\SuperOwner.xaml;
+
+False
+

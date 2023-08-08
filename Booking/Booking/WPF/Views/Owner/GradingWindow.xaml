@@ -1,0 +1,107 @@
+﻿<Window x:Class="Booking.View.GradingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.View"
+        mc:Ignorable="d"
+        Title="GradingWindow" Height="768" Width="1024"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ControlTemplate x:Key="ValidationTemplate">
+            <StackPanel>
+                <!-- Placeholder for the TextBox itself -->
+                <AdornedElementPlaceholder x:Name="NameTextBox" />
+                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red" />
+            </StackPanel>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <TextBlock Margin="10,6,0,0" FontWeight="Bold" FontSize="42" Text="Grading guests" Foreground="#FFFFF200" >
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+            </TextBlock.Effect>
+        </TextBlock>
+
+        <Separator Margin="0,-120,0,480" Width="1024" HorizontalAlignment="Center" />
+        <Label Content="Cleanliness*" HorizontalAlignment="Left" Margin="40,90,0,0" VerticalAlignment="Top" FontSize="35" />
+        <StackPanel Margin="0,60,70,0">
+            <ComboBox x:Name="comboBoxCleanlinessName" Margin="0,40,0,0" ToolTip="Press and choose a grade which best describes the guests cleanliness" FontSize="30" Height="50" Width="250" ItemsSource="{Binding Path= comboBoxCleanliness, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" SelectedItem="{Binding Path=Cleanliness, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" >
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Style.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+        </StackPanel>
+
+
+        <Label Content="RuleFollowing*" HorizontalAlignment="Left" Margin="40,190,0,0" VerticalAlignment="Top" FontSize="35" />
+        <Label Content="Communication*" HorizontalAlignment="Left" Margin="40,290,0,0" VerticalAlignment="Top" FontSize="35" />
+
+        <StackPanel Margin="0,60,70,0">
+            <ComboBox x:Name="comboBoxRuleFollowingName" Margin="0,140,0,0" ToolTip="Press and choose a grade which best describes the guests rule following" Width="250" FontSize="30" Height="50" ItemsSource="{Binding Path= comboBoxRuleFollowing, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" SelectedItem="{Binding Path=RuleFollowing, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" >
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Style.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+            <ComboBox x:Name="comboBoxCommunicationName" Margin="0,50,0,0" ToolTip="Press and choose a grade which best describes the guests communication" Width="250" FontSize="30" Height="50" ItemsSource="{Binding Path= comboBoxCommunication, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" SelectedItem="{Binding Path=Communication, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" >
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Style.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+        </StackPanel>
+
+        <Label Content="Comment*" HorizontalAlignment="Left" Margin="720,80,0,0" VerticalAlignment="Top" FontSize="35"/>
+        <TextBox x:Name="tbDescription" HorizontalAlignment="Left" ToolTip="Press to add a comment" Margin="630,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="350" FontSize="15" Height="306" Text="{Binding Path=Comment, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}">
+            <TextBox.Style>
+                <Style TargetType="{x:Type TextBox}">
+                    <Style.Triggers>
+                        <Trigger Property="Validation.HasError" Value="True">
+                            <Setter Property="BorderBrush" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+
+        <Label Content="Lateness*" HorizontalAlignment="Left" Margin="40,390,0,0" VerticalAlignment="Top" FontSize="35" />
+        <StackPanel Margin="0,60,70,0">
+            <ComboBox x:Name="comboBoxLatenessName" ToolTip="Press and choose a grade which best describes the guests lateness" Margin="0,335,0,0" Width="250" FontSize="30" Height="50" ItemsSource="{Binding Path= comboBoxLateness, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" SelectedItem="{Binding Path=Lateness, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" Validation.ErrorTemplate="{StaticResource ValidationTemplate}" >
+                <ComboBox.Style>
+                    <Style TargetType="{x:Type ComboBox}">
+                        <Style.Triggers>
+                            <Trigger Property="Validation.HasError" Value="True">
+                                <Setter Property="BorderBrush" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
+        </StackPanel>
+
+        <WrapPanel FlowDirection="LeftToRight" Margin="200,620,0,0">
+            <Button Margin ="118 10 0 0 " HorizontalAlignment="Left" ToolTip="Press to grade the guest" Width="150" Height="75" FontWeight="Bold" FontSize="35" Command="{Binding Grade}" >GRADE</Button>
+            <Button Margin="60 10 0 0"  VerticalAlignment="Center" HorizontalAlignment="Left" ToolTip="Press to close this window" Width="150" Height="75" FontWeight="Bold" FontSize="35" Command="{Binding Close}" >CLOSE</Button>
+        </WrapPanel>
+        <WrapPanel FlowDirection="LeftToRight" Margin="785,10,0,671">
+            <Button Margin ="118 5 0 0 " HorizontalAlignment="Left" ToolTip="Press to open wizard" Width="80" Height="30" FontWeight="Bold" FontSize="15" Command="{Binding Wizard}" >Wizard</Button>
+        </WrapPanel>
+    </Grid>
+</Window>

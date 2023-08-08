@@ -1,0 +1,332 @@
+﻿<Window x:Class="Booking.View.GuideHomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="GuideHomePage" Height="538" Width="985" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.InputBindings>
+        <KeyBinding Key="D1" Modifiers="Control" Command="{Binding OpenCreateTour}"/>
+        <KeyBinding Key="D2" Modifiers="Control" Command="{Binding OpenCreateTourBasedOnRequests}"/>
+        <KeyBinding Key="D3" Modifiers="Control" Command="{Binding OpenStatisticsAboutTour}"/>
+        <KeyBinding Key="D4" Modifiers="Control" Command="{Binding OpenTourRequestStatistic}"/>
+        <KeyBinding Key="D5" Modifiers="Control" Command="{Binding OpenFollowTourLive}"/>
+        <KeyBinding Key="D6" Modifiers="Control" Command="{Binding OpenSuperGuide}"/>
+        <KeyBinding Key="D7" Modifiers="Control" Command="{Binding OpenAcceptTourRequest}"/>
+        <KeyBinding Key="D8" Modifiers="Control" Command="{Binding OpenAcceptPartTour}"/>
+        <KeyBinding Key="D9" Modifiers="Control" Command="{Binding OpenViewReviews}"/>
+    </Window.InputBindings>
+
+    <Grid>
+
+
+
+        <StackPanel DockPanel.Dock="Top" Margin="0,0,710,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#303841"/>
+                    <GradientStop Color="#FFF200" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Button FontWeight="SemiBold" Width="200" Height="30" HorizontalAlignment="Left" Margin="1 44 10 0"  HorizontalContentAlignment="Left" Command="{Binding OpenCreateTour}" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock>
+            <Run Text=" Create tour"/>
+            <Run Text="                      "></Run>
+            <Run Text=" (Ctrl+1)" FontStyle="Italic" Foreground="Gray" FontSize="10"  />
+                    </TextBlock>
+                </Button.Content>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Ctrl+1</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button  FontWeight="SemiBold" Width="200" Height="30" HorizontalAlignment="Left" Margin="1 2 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenCreateTourBasedOnRequests}" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock>
+            <Run Text=" Statistics create"/>
+            <Run Text="               "></Run>
+            <Run Text=" (Ctrl+2)" FontStyle="Italic" Foreground="Gray" FontSize="10"  />
+                    </TextBlock>
+                </Button.Content>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Ctrl+2</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button  FontWeight="SemiBold" Width="200" Height="30" HorizontalAlignment="Left" Margin="1 2 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenStatisticsAboutTour}" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock>
+            <Run Text=" Tour statistics"/>
+            <Run Text="                  "></Run>
+            <Run Text=" (Ctrl+3)" FontStyle="Italic" Foreground="Gray" FontSize="10"  />
+                    </TextBlock>
+                </Button.Content>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Ctrl+3</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button FontWeight="SemiBold" Width="200" Height="30" HorizontalAlignment="Left" Margin="1 2 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenTourRequestStatistic}" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock>
+            <Run Text=" Requests statistic"/>
+            <Run Text="            "></Run>
+            <Run Text=" (Ctrl+4)" FontStyle="Italic" Foreground="Gray" FontSize="10"  />
+                    </TextBlock>
+                </Button.Content>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Ctrl+4</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button FontWeight="SemiBold" Width="200" Height="30" HorizontalAlignment="Left" Margin="1 2 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenFollowTourLive}" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock>
+            <Run Text=" Follow the tour live"/>
+            <Run Text="         "></Run>
+            <Run Text=" (Ctrl+5)" FontStyle="Italic" Foreground="Gray" FontSize="10"  />
+                    </TextBlock>
+                </Button.Content>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Ctrl+5</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+
+
+            <Button FontWeight="SemiBold" Width="200" Height="30" HorizontalAlignment="Left" Margin="1 2 10 0" HorizontalContentAlignment="Left"  Command="{Binding OpenSuperGuide}">
+
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock>
+            <Run Text=" Super - Guide"/>
+            <Run Text="                  "></Run>
+            <Run Text=" (Ctrl+6)" FontStyle="Italic" Foreground="Gray" FontSize="10"  />
+                    </TextBlock>
+                </Button.Content>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Ctrl+6</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button  FontWeight="SemiBold" Width="200" Height="30" HorizontalAlignment="Left" Margin="1 2 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenAcceptTourRequest}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock>
+            <Run Text=" Accepting tour requests"/>
+            <Run Text=" "></Run>
+            <Run Text=" (Ctrl+7)" FontStyle="Italic" Foreground="Gray" FontSize="10"  />
+                    </TextBlock>
+                </Button.Content>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Ctrl+7</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button FontWeight="SemiBold"  Width="200" Height="30" HorizontalAlignment="Left" Margin="1 2 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenAcceptPartTour}" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock>
+            <Run Text=" Accepting part of tour"/>
+            <Run Text="    "></Run>
+            <Run Text=" (Ctrl+8)" FontStyle="Italic" Foreground="Gray" FontSize="10"  />
+                    </TextBlock>
+                </Button.Content>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Ctrl+8</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+            <Button FontWeight="SemiBold"  Width="200" Height="30" HorizontalAlignment="Left" Margin="1 2 10 0" HorizontalContentAlignment="Left" Command="{Binding OpenViewReviews}" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <TextBlock>
+            <Run Text=" View reviews"/>
+            <Run Text="                   "></Run>
+            <Run Text=" (Ctrl+9)" FontStyle="Italic" Foreground="Gray" FontSize="10"  />
+                    </TextBlock>
+                </Button.Content>
+                <Button.ToolTip>
+                    <ToolTip>
+                        <TextBlock>Ctrl+9</TextBlock>
+                    </ToolTip>
+                </Button.ToolTip>
+            </Button>
+
+
+            <Image Margin="-195 15 10 10" Height="45" Width="45" Source="/Resources/Images/user.png"/>
+            <TextBlock Margin="-105 -85 0 0" FontSize="17" FontStyle="Italic" FontWeight="Bold" Foreground="#FF303841" Height="21" Width="50">Guide</TextBlock>
+            <TextBlock x:Name="usernameTextBlock" Margin="-8 -45 0 0" FontSize="15" FontStyle="Italic" FontWeight="SemiBold" Foreground="#D6E6F2" Height="21" Width="144" Text="{Binding Username}"></TextBlock>
+
+            <Button  FontWeight="SemiBold" Width="200" Height="30" HorizontalAlignment="Left" Margin="1 0 15 0" HorizontalContentAlignment="Left" Command="{Binding Dismissal}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Width="27" Height="27" Margin="0" Source="/Resources/Images/dismissal.png"/>
+                        <TextBlock Text="   Dismissal" Margin="5,5,0,0" FontWeight="SemiBold" />
+                    </StackPanel>
+                </Button.Content>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+    
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button  FontWeight="SemiBold" Width="200" Height="30" HorizontalAlignment="Left" Margin="1 2 10 0" HorizontalContentAlignment="Left" Command="{Binding DemoMode}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image  Width="27" Height="27" Margin="0" Source="/Resources/Images/demo.png"/>
+                        <TextBlock Text="   Demo mode" Margin="5,5,0,0" FontWeight="SemiBold"/>
+                    </StackPanel>
+                </Button.Content>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button  FontWeight="SemiBold" Width="200" Height="30" HorizontalAlignment="Left" Margin="1 2 10 0" HorizontalContentAlignment="Left" Command="{Binding LogOut}" >
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Width="23" Height="23" Margin="0" Source="/Resources/Images/logout.png" />
+                        <TextBlock Text="    Log out" Margin="5,5,0,0" FontWeight="SemiBold" />
+                    </StackPanel>
+                </Button.Content>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+
+        </StackPanel>
+
+        <StackPanel Margin="210,0,5,0" Background="#D6E6F2">
+
+            <TextBlock Margin="8 0 0 0" FontWeight="Bold" FontSize="32" Text="All tours" Foreground="#FFFFF200" >
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <Separator Margin="8 0 0 0" Width="717" HorizontalAlignment="Left" />
+            <ScrollViewer MaxHeight="390">
+            <DataGrid        
+                BorderBrush="Black"
+            SelectionMode="Single"
+            IsReadOnly="True" 
+            Margin="8 20 10 10" 
+            RowHeight="35"
+            AlternationCount="2"
+            AutoGenerateColumns="False"             
+            CanUserResizeColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserReorderColumns="False"
+            SelectedItem="{Binding SelectedTour, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Path=Tours}">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="125" Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="93" Header="State" Binding="{Binding Location.State}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="City" Binding="{Binding Location.City}"></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Language" Binding="{Binding Language}"/>
+                    <DataGridTextColumn Header="Max Visitors" Width="75" Binding="{Binding MaxVisitors}"/>
+                    <DataGridTextColumn Width="93" Header="Departure Date" Binding="{Binding StartTime, StringFormat={}{0:dd/MM/yyyy}}" ></DataGridTextColumn>
+                    <DataGridTextColumn Width="*" Header="Duration" Binding="{Binding Duration}"></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="Description">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button  Content="Show" FontSize="11" Width="65" Height="30" FontStyle="Oblique" Command="{Binding DataContext.ShowDescriptionText, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+                                        <Button.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="5"></Setter>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        
+                    <DataGridTemplateColumn Header="Cancel tour">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                    <Button Content="Cancel" FontSize="11" Width="65" Height="30" FontStyle="Oblique" 
+                                            Command="{Binding DataContext.CancelTour, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}">
+                                        <Button.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="5"></Setter>
+                                            </Style>
+                                        </Button.Resources>
+                                    </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+                <DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="#ADBAC4"/>
+                        <Style.Triggers>
+                            <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                                <Setter Property="Background" Value="#F5F5F5"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+
+            </DataGrid>
+            </ScrollViewer>
+        </StackPanel>
+
+
+    </Grid>
+</Window>

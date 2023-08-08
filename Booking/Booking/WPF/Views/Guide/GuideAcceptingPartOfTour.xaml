@@ -1,0 +1,74 @@
+﻿<Window x:Class="Booking.WPF.Views.Guide.GuideAcceptingPartOfTour"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Booking.WPF.Views.Guide"
+        mc:Ignorable="d"
+        Title="Accepting part of tour" Height="400" Width="540" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#D6E6F2">
+    <Grid>
+        <TextBlock Margin="13,5,0,0" FontWeight="Bold" FontSize="25" Text="Accepting part of tour" Foreground="#FFFFF200" >
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="4" Color="#303841" BlurRadius="5" />
+            </TextBlock.Effect>
+        </TextBlock>
+        <Separator Margin="0,-273,0,0" Width="510" HorizontalAlignment="Center" />
+
+        <DataGrid        
+                BorderBrush="Black"
+            SelectionMode="Single"
+            IsReadOnly="True" 
+            Width="450" Height="240"
+            Margin="8 0 10 10" 
+            RowHeight="35"
+            AlternationCount="2"
+            AutoGenerateColumns="False"             
+            CanUserResizeColumns="False" CanUserAddRows="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserReorderColumns="False"
+            SelectedItem="{Binding SelectedTourRequest, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding Path=TourRequests}">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="112" Header="State" Binding="{Binding Location.State}"></DataGridTextColumn>
+                <DataGridTextColumn Width="113" Header="City" Binding="{Binding Location.City}"></DataGridTextColumn>
+                <DataGridTextColumn Width="108" Header="Start Date" Binding="{Binding StartTime, StringFormat={}{0:dd/MM/yyyy}}" ></DataGridTextColumn>
+                <DataGridTextColumn Width="109" Header="End Date" Binding="{Binding EndTime, StringFormat={}{0:dd/MM/yyyy}}" ></DataGridTextColumn>
+
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="#ADBAC4"/>
+                    <Style.Triggers>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                            <Setter Property="Background" Value="#F5F5F5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+
+        </DataGrid>
+
+        <WrapPanel Margin="70 295 0 0" Width="250" Height="50">
+            <Button Width="70" Height="40" Margin="0 0 0 0" FontWeight="Bold" Command="{Binding AcceptPartOfTour}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+                <StackPanel>
+                    <TextBlock>Accept part</TextBlock>
+                    <TextBlock Text="    of tour"></TextBlock>
+                </StackPanel>
+            </Button>
+            
+            <Button Width="70" Height="40" Content="Close" Margin="20 0 0 0" FontWeight="Bold" Command="{Binding Close}" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </WrapPanel>
+
+    </Grid>
+</Window>

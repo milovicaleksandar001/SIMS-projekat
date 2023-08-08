@@ -1,0 +1,39 @@
+﻿<Page x:Class="Booking.WPF.Views.Guest1.ShowAllForums"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Booking.WPF.Views.Guest1"
+      xmlns:ns="clr-namespace:Booking.Localization"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ShowAllForums" Style="{DynamicResource MyWindowStyle}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,20,10,5" HorizontalAlignment="Center">
+                <Image Source="/Resources/Images/forum.png" Height="30" Width="30"></Image>
+                <Label FontWeight="Bold" FontSize="17" Content="{ns:Loc ShowAllForumsTitle}"></Label>
+            </StackPanel>
+            <DataGrid Grid.Row="1" SelectionMode="Single" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Path = Forums}"
+                  Name="RequestsDataGrid" HorizontalAlignment="Center" Margin="150,20,100,150" SelectedItem="{Binding SelectedForum}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{ns:Loc StateDataGrid}"  Width="*" Binding="{Binding Location.State}"></DataGridTextColumn>
+                     <DataGridTextColumn Header="{ns:Loc CityDataGrid}" Width="*"  Binding="{Binding Location.City}"></DataGridTextColumn>
+                     <DataGridTextColumn Header="{ns:Loc OwnerUsernameDataGrid}" Width="*" Binding="{Binding User.Username}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Status" Width="*"  Binding="{Binding Status}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="{ns:Loc VeryHelpful}" Width="*"  Binding="{Binding Helpful}"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+            </DataGrid>
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button  Content="{ns:Loc ShowForumComments}" FontWeight="Bold" Width="140" Margin="10"  Command="{Binding Show_Comments_Button}"></Button>
+                <Button  Content="{ns:Loc OpenForumButton}" FontWeight="Bold" Width="140" Margin="10"  Command="{Binding Create_Forum_Button}"></Button>
+                <Button  Content="{ns:Loc CloseForumButton}" FontWeight="Bold" Width="140" Margin="10"  Command="{Binding Close_Forum_Button}"></Button>
+        </StackPanel>
+        </Grid>
+</Page>

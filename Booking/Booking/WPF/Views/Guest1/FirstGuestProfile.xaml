@@ -1,0 +1,68 @@
+﻿<Page x:Class="Booking.WPF.Views.Guest1.FirstGuestProfile"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Booking.WPF.Views.Guest1"
+      xmlns:ns="clr-namespace:Booking.Localization"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FirstGuestProfile"  Style="{DynamicResource MyWindowStyle}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10" Grid.ColumnSpan="2">
+            <Image Source="/Resources/Images/user.png" Height="30"></Image>
+            <Label  Content="{ns:Loc MyProfileTitle}" FontSize="20" FontWeight="Bold" VerticalContentAlignment="Center"></Label>
+        </StackPanel>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black"  BorderThickness="1" CornerRadius="10" HorizontalAlignment="Left" Margin="0,55, 0,190" Background="AliceBlue">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Content="{ns:Loc NumberOfResevations}" Grid.Row="0" Grid.Column="0" FontSize="18" ></Label>
+                <Label Content="{Binding NumberOfReservations, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="1" FontSize="18"></Label>
+                <Label Content="{ns:Loc YourTitle}" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="18"></Label>
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                    <Label Content="{Binding TypeOfGuest, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"></Label>
+                    <Image Source="/Resources/Images/star.png" Height="40" Visibility="{Binding StarImageVisibility, UpdateSourceTrigger=PropertyChanged}"></Image>
+                </StackPanel>
+                <Label Content="{ns:Loc BonusPoints}" Grid.Row="2" Grid.Column="0" FontSize="18"></Label>
+                <Label Content="{Binding BonusPoints, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" FontSize="18"></Label>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,30,0">
+
+            <Ellipse Width="190" Height="190" Margin="10">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Resources/Images/profile.png" Stretch="UniformToFill"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{ns:Loc Username}" HorizontalAlignment="Left" FontSize="17" FontWeight="Bold"></Label>
+                <Label  Content="zelic.kris" HorizontalAlignment="Center" FontSize="17" FontWeight="Bold"></Label>
+            </StackPanel>
+        </StackPanel>
+
+       
+        
+    </Grid>
+</Page>
